@@ -1,116 +1,231 @@
-# 🚀 Developer Portfolio Website
+# 👋 Kondi Uma VaraLakshmi — Developer Portfolio
 
-A stunning, modern portfolio website built with pure HTML, CSS, and JavaScript — no frameworks required.
+Welcome to my personal portfolio website! This portfolio showcases my experience, technical skills, certifications, and software engineering projects built using modern technologies.
 
-## ✨ Features
+## 🌐 Live Portfolio
 
-- **Dark Cosmic Theme** — Deep space background with purple/cyan gradient accents
-- **Interactive Canvas Background** — Animated particle field with connection lines
-- **Custom Cursor** — Smooth follower cursor with hover effects
-- **Typed Effect** — Rotating role titles in the hero section
-- **Scroll Reveal Animations** — Elements animate in as you scroll
-- **Glassmorphism Cards** — Frosted glass project cards with hover effects
-- **Orbit Rings** — Animated tech orbit around profile in hero
-- **Animated Skill Bars** — Progress bars animate when visible
-- **Project Filter** — Filter projects by category (Web, API, Tools)
-- **Experience Timeline** — Dual-side animated timeline
-- **Contact Form** — Client-side validation with success feedback
-- **Fully Responsive** — Mobile, tablet, and desktop ready
-- **SEO Ready** — Meta tags, semantic HTML, structured headings
+🔗 **Website:**  
+https://kondiumavaralakshmi.github.io/My_Portfolio/
 
-## 📁 Project Structure
+---
 
-```
-portfolio_internship/
-├── index.html      ← Main HTML (all sections)
-├── style.css       ← Full design system & animations
-├── script.js       ← Interactions & animations
-└── README.md       ← This file
-```
+# 👩‍💻 About Me
 
-## 🎨 Color Palette
+I'm **Kondi Uma VaraLakshmi**, a Computer Science undergraduate at **Aditya University** with a strong academic record (**CGPA: 9.65/10**) and hands-on experience in software development.
 
-| Role            | Hex       |
-| --------------- | --------- |
-| Background      | `#050816` |
-| Electric Purple | `#7C3AED` |
-| Cyan            | `#06B6D4` |
-| Amber           | `#F59E0B` |
-| Emerald         | `#10B981` |
+I enjoy building scalable software, full-stack web applications, backend systems, REST APIs, and AI-powered solutions using modern technologies.
 
-## 🚀 Getting Started
+I'm currently seeking opportunities in:
 
-### Local Development
+- Software Engineering
+- Full Stack Development
+- Backend Development
+- AI & Machine Learning
+- Enterprise Software Development
 
-Simply open `index.html` in your browser — no build step required!
+---
 
-```bash
-# Windows
-start index.html
+# 🚀 Featured Projects
 
-# Or drag and drop index.html into any browser
-```
+### 🏡 Real Estate Marketplace
 
-### Adding Your Info (Placeholders to Replace)
+A full-stack property marketplace with secure authentication, property listings, search functionality, user profiles, and complete CRUD operations.
 
-Search for `[Your Name]`, `[Your City]`, `[your@email.com]` etc. in `index.html` and replace with your real information.
+**Tech Stack**
 
-| Placeholder              | Replace With                      |
-| ------------------------ | --------------------------------- |
-| `[Your Name]`            | Your full name                    |
-| `[YN]`                   | Your initials                     |
-| `[Your City, Country]`   | Your location                     |
-| `[Your Degree, College]` | Education info                    |
-| `[your@email.com]`       | Your email                        |
-| Social link `href="#"`   | Real GitHub/LinkedIn/Twitter URLs |
-| Project card content     | Your real projects                |
-| Timeline entries         | Real experience                   |
+- React.js
+- Node.js
+- Express.js
+- MongoDB
+- JWT
+- Redux Toolkit
 
-### Adding Your Photo
+---
 
-Replace the initials avatar with your photo by adding inside `.profile-avatar` in `index.html`:
+### 🏢 Multi-Tenant SaaS Platform
 
-```html
-<img src="your-photo.jpg" alt="[Your Name]" />
-```
+Built a scalable MERN-based SaaS platform supporting tenant isolation, secure authentication, role-based access control, and centralized administration.
 
-### Resume Download
+**Tech Stack**
 
-Change the `href="#"` on the **Download Resume** button to point to your PDF file:
+- React.js
+- Node.js
+- Express.js
+- MongoDB
+- JWT
 
-```html
-<a href="resume.pdf" class="btn btn-primary" download></a>
-```
+---
 
-## 🌐 Deployment
+### 🎓 AI Academic Advisor
 
-### GitHub Pages (Free)
+An AI-powered academic advisory platform that provides personalized recommendations, intelligent chatbot support, study planning, and academic insights.
 
-1. Push this folder to a GitHub repository
-2. Go to **Settings → Pages**
-3. Set source to **main branch / root**
-4. Your site will be live at `https://yourusername.github.io/repo-name`
+**Tech Stack**
 
-### Netlify (Free)
+- Python
+- FastAPI
+- React.js
+- PostgreSQL
+- Gemini API
 
-1. Drag & drop your project folder to [netlify.com/drop](https://netlify.com/drop)
-2. Get an instant live URL!
+---
 
-### Vercel (Free)
+### 📊 LeadFlow CRM
 
-```bash
-npx vercel
-```
+A full-stack Customer Relationship Management platform featuring lead management, dashboard analytics, secure authentication, and RESTful APIs.
 
-## 📋 SEO Checklist
+**Tech Stack**
 
-- ✅ Meta title and description
-- ✅ Open Graph tags
-- ✅ Semantic HTML (header, nav, section, article, footer)
-- ✅ Single H1 per page
-- ✅ ARIA labels on all interactive elements
-- ✅ Alt text placeholders ready
+- React.js
+- Node.js
+- Express.js
+- MongoDB
+- JWT
 
-## 📜 License
+---
 
-MIT — Free to use and modify.
+### 🤖 BuddyBot AI Chat Assistant
+
+An AI chatbot built using Google's Gemini API with real-time conversations, chat history, responsive UI, and intelligent responses.
+
+**Tech Stack**
+
+- JavaScript
+- HTML
+- CSS
+- Gemini API
+- REST API
+
+---
+
+# 💻 Technical Skills
+
+### Languages
+
+- C++
+- Java
+- Python
+- JavaScript
+- SQL
+
+### Frontend
+
+- React.js
+- HTML5
+- CSS3
+- Tailwind CSS
+
+### Backend
+
+- Node.js
+- Express.js
+- FastAPI
+- Django
+- REST APIs
+- JWT Authentication
+
+### Databases
+
+- MongoDB
+- PostgreSQL
+- MySQL
+- Redis
+
+### DevOps & Tools
+
+- Git
+- GitHub
+- Docker
+- CI/CD
+
+### AI & Machine Learning
+
+- Google Gemini API
+- Vertex AI
+- Machine Learning
+- NumPy
+- Pandas
+- Scikit-learn
+
+---
+
+# 🏆 Experience
+
+### Software Development Engineer Intern
+
+**Bluestock Fintech**
+
+- Developed RESTful APIs using Node.js and Express.js.
+- Performed API testing using Postman.
+- Collaborated using Git & GitHub.
+- Worked on backend development and debugging.
+
+---
+
+### Web Developer Intern
+
+**Aim Technologies**
+
+- Built responsive web applications.
+- Integrated REST APIs.
+- Improved UI responsiveness.
+- Developed scalable web solutions.
+
+---
+
+# 📜 Certifications
+
+- Python Foundations
+- Database Management System
+- HackerRank SQL (Basic)
+- Docker
+- Practical GitHub
+- NVIDIA Fundamentals of Deep Learning
+- Google Cloud Skills Boost
+- JLPT N5 (Japanese Language Proficiency Test)
+
+---
+
+# 🎯 Highlights
+
+- ⭐ 9.65 CGPA
+- 💻 Software Development Engineer Intern
+- 🚀 Full Stack Developer
+- 🤖 AI Application Developer
+- 📂 Multiple Software Engineering Projects
+- 🌱 Passionate about learning modern technologies
+
+---
+
+# 🛠 Built With
+
+- HTML5
+- CSS3
+- JavaScript
+- Responsive Design
+- GitHub Pages
+
+---
+
+# 📬 Contact
+
+📧 Email: **umakondi167@gmail.com**
+
+💼 LinkedIn:  
+https://www.linkedin.com/in/kondi-uma-varalakshmi-8a1069291/
+
+💻 GitHub:  
+https://github.com/KONDIUMAVARALAKSHMI
+
+🌐 Portfolio:  
+https://kondiumavaralakshmi.github.io/My_Portfolio/
+
+---
+
+# ⭐ If you like this portfolio...
+
+Feel free to star ⭐ the repository if you found it useful or inspiring!
+
+---
+
+© 2026 Kondi Uma VaraLakshmi. All Rights Reserved.

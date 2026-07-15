@@ -4,13 +4,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Kondi Uma VaraLakshmi – Full Stack Developer & Web Developer Intern at Aim Technologies. React, Node.js, Python specialist." />
-  <meta name="keywords" content="Kondi Uma VaraLakshmi, portfolio, full stack developer, React, Node.js, Python, web developer" />
-  <title>Kondi Uma VaraLakshmi — Developer Portfolio</title>
+  <meta name="description"
+    content="Kondi Uma VaraLakshmi – Full Stack Developer & Web Developer Intern at Aim Technologies. React, Node.js, Python specialist." />
+  <meta name="keywords"
+    content="Kondi Uma VaraLakshmi, portfolio, full stack developer, React, Node.js, Python, web developer" />
+  <title>Kondi Uma VaraLakshmi | Portfolio</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet" />
 </head>
 
 <body>
@@ -28,7 +32,9 @@
         <span data-text="D">D</span>
         <span data-text="I">I</span>
       </div>
-      <div class="loader-bar"><div class="loader-fill" id="loader-fill"></div></div>
+      <div class="loader-bar">
+        <div class="loader-fill" id="loader-fill"></div>
+      </div>
     </div>
   </div>
 
@@ -36,28 +42,45 @@
   <div class="noise-overlay"></div>
 
   <!-- ─── CUSTOM CURSOR ─── -->
-  <div class="cursor" id="cursor"></div>
+  <div class="custom-cursor"></div>
+  <!-- <div class="cursor" id="cursor"></div>
   <div class="cursor-ring" id="cursor-ring"></div>
-  <div class="cursor-label" id="cursor-label">VIEW</div>
+  <div class="cursor-label" id="cursor-label">VIEW</div> -->
 
   <!-- ─── NAVIGATION ─── -->
   <nav id="navbar">
     <div class="nav-container">
       <a href="#home" class="nav-logo" id="nav-logo">
-        <span class="logo-mark">KUV</span>
-        <span class="logo-dot">.</span>
+        <span class="logo-mark"></span>
+        <span class="logo-dot"></span>
       </a>
       <div class="nav-center">
+        <a href="#home" class="nav-link" id="nav-home">Home</a>
         <a href="#about" class="nav-link" id="nav-about">About</a>
-        <a href="#projects" class="nav-link" id="nav-projects">Work</a>
+        <a href="#experience" class="nav-link" id="nav-experience">Experience</a>
+        <a href="#projects" class="nav-link" id="nav-projects">Projects</a>
         <a href="#skills" class="nav-link" id="nav-skills">Skills</a>
         <a href="#contact" class="nav-link" id="nav-contact-link">Contact</a>
       </div>
       <div class="nav-right">
         <span class="nav-avail">● Available</span>
         <button class="theme-toggle" id="theme-toggle" aria-label="Toggle Dark/Light Mode">
-          <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-          <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none;"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+          <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+          <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2" style="display:none;">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
         </button>
         <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
           <span></span><span></span>
@@ -66,8 +89,10 @@
     </div>
     <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobile-menu">
+      <a href="#home" class="mobile-link">Home</a>
       <a href="#about" class="mobile-link">About</a>
-      <a href="#projects" class="mobile-link">Work</a>
+      <a href="#experience" class="mobile-link">Experience</a>
+      <a href="#projects" class="mobile-link">Projects</a>
       <a href="#skills" class="mobile-link">Skills</a>
       <a href="#contact" class="mobile-link">Contact</a>
     </div>
@@ -81,7 +106,9 @@
     <div class="hero-content">
       <p class="hero-eyebrow">
         <span class="eyebrow-line"></span>
-        Web Developer & Full Stack Engineer
+        Software Engineer
+        Building Scalable Full-Stack
+        & AI-Powered Applications
         <span class="eyebrow-line"></span>
       </p>
       <h1 class="hero-heading">
@@ -95,6 +122,11 @@
           Vara<em>Lakshmi</em>
         </span>
       </h1>
+      <p class="hero-description">
+        Computer Science undergraduate with internship experience in Full Stack Development and Software Engineering.
+        Passionate about building scalable web applications, backend systems, and AI-powered software using modern
+        technologies.
+      </p>
       <div class="hero-meta">
         <div class="hero-meta-item">
           <span class="meta-label">Location</span>
@@ -113,10 +145,15 @@
       </div>
       <div class="hero-actions">
         <a href="#projects" class="btn-editorial" id="btn-view-projects">
-          <span>Explore Work</span>
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          <span>View Projects</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M5 12h14M12 5l7 7-7 7" />
+          </svg>
         </a>
-        <a href="#contact" class="btn-outline" id="btn-contact">Say Hello</a>
+        <a href="assets/Kondi_Uma_VaraLakshmi_Resume.pdf" class="btn-outline"
+          download="Kondi_Uma_VaraLakshmi_Resume.pdf">
+          Download Resume
+        </a>
       </div>
     </div>
     <div class="hero-number">01</div>
@@ -168,24 +205,23 @@
       <div class="about-grid">
         <div class="about-text">
           <h2 class="e-heading reveal-split">
-            Crafting Digital<br /><em>Experiences</em><br />That Matter
+            Building Scalable<br /><em>Software</em><br />That Solves Real Problems
           </h2>
           <p class="e-body reveal-fade">
-            I'm a B.Tech CSE student at Aditya University (CGPA 9.65), SDE Intern at
-            <strong>Bluestock Fintech</strong> and Web Developer Intern at
-            <strong>Aim Technologies, Kakinada</strong>. I build full-stack
-            applications that are fast, beautiful, and solve real problems — from AI
-            chatbots to enterprise CRM systems.
+            I'm a Computer Science undergraduate at Aditya University with a strong academic record (CGPA 9.65) and
+            hands-on experience in Full Stack Development and Software Engineering. I enjoy building scalable web
+            applications, backend systems, REST APIs, and AI-powered solutions using modern technologies.
           </p>
           <p class="e-body reveal-fade">
-            Passionate about clean architecture, elegant UI, and collaborative
-            problem-solving. I thrive at the intersection of design and engineering.
+            Through internships and personal projects, I've worked with React, Node.js, Express.js, FastAPI, MongoDB,
+            PostgreSQL, Docker, and AI technologies. I'm passionate about writing clean, maintainable code and
+            continuously learning to build software that solves real-world problems.
           </p>
           <div class="about-badges reveal-fade">
-            <span class="badge">🏆 Top 10% CGPA</span>
-            <span class="badge">⭐ 5-Star HackerRank</span>
-            <span class="badge">🥈 Veda 2024 Quiz Winner</span>
-            <span class="badge">🚀 SIH 2025 Participant</span>
+            <span class="badge">💻 Full Stack Development</span>
+            <span class="badge">⚙️ Backend Engineering</span>
+            <span class="badge">🤖 AI Integration</span>
+            <span class="badge">🏆 9.65 CGPA</span>
           </div>
         </div>
         <div class="about-info-col">
@@ -199,28 +235,34 @@
               <span class="info-card-label">Experience</span>
               <div class="info-card-val info-card-val--with-logo">
                 <!-- Bluestock real logo: 3 slanted gradient bars + white dash -->
-                <svg class="bluestock-svg-logo" width="72" height="20" viewBox="0 0 120 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Bluestock Fintech" style="margin-right:6px;flex-shrink:0;">
+                <svg class="bluestock-svg-logo" width="72" height="20" viewBox="0 0 120 32" fill="none"
+                  xmlns="http://www.w3.org/2000/svg" aria-label="Bluestock Fintech"
+                  style="margin-right:6px;flex-shrink:0;">
                   <defs>
                     <linearGradient id="bs-grad-c" x1="0" y1="0" x2="1" y2="1">
-                      <stop offset="0%" stop-color="#7B5EA7"/>
-                      <stop offset="100%" stop-color="#2B7FFF"/>
+                      <stop offset="0%" stop-color="#7B5EA7" />
+                      <stop offset="100%" stop-color="#2B7FFF" />
                     </linearGradient>
                   </defs>
                   <!-- Bar 1 (short, left) -->
-                  <rect x="0" y="18" width="7" height="14" rx="2" transform="skewX(-12)" fill="url(#bs-grad-c)"/>
+                  <rect x="0" y="18" width="7" height="14" rx="2" transform="skewX(-12)" fill="url(#bs-grad-c)" />
                   <!-- Bar 2 (medium, mid) -->
-                  <rect x="11" y="10" width="7" height="22" rx="2" transform="skewX(-12)" fill="url(#bs-grad-c)"/>
+                  <rect x="11" y="10" width="7" height="22" rx="2" transform="skewX(-12)" fill="url(#bs-grad-c)" />
                   <!-- Bar 3 (tall, right) -->
-                  <rect x="22" y="0" width="7" height="32" rx="2" transform="skewX(-12)" fill="url(#bs-grad-c)"/>
+                  <rect x="22" y="0" width="7" height="32" rx="2" transform="skewX(-12)" fill="url(#bs-grad-c)" />
                   <!-- White diagonal slash -->
-                  <line x1="3" y1="28" x2="26" y2="4" stroke="white" stroke-width="2.5" stroke-linecap="round" opacity="0.9"/>
+                  <line x1="3" y1="28" x2="26" y2="4" stroke="white" stroke-width="2.5" stroke-linecap="round"
+                    opacity="0.9" />
                   <!-- BLUESTOCK text -->
-                  <text x="38" y="23" font-family="Arial,sans-serif" font-weight="800" font-size="14" fill="#1A1A2E" letter-spacing="0.5">BLUESTOCK</text>
+                  <text x="38" y="23" font-family="Arial,sans-serif" font-weight="800" font-size="14" fill="#1A1A2E"
+                    letter-spacing="0.5">BLUESTOCK</text>
                   <!-- .in suffix -->
-                  <text x="103" y="23" font-family="Arial,sans-serif" font-weight="700" font-size="10" fill="#2B7FFF">.in</text>
+                  <text x="103" y="23" font-family="Arial,sans-serif" font-weight="700" font-size="10"
+                    fill="#2B7FFF">.in</text>
                 </svg>
               </div>
-              <div class="info-card-sub">SDE Intern · 2 Months · <a href="https://bluestock.in" target="_blank" rel="noopener" class="bs-site-link">bluestock.in ↗</a></div>
+              <div class="info-card-sub">SDE Intern · 2 Months · <a href="https://bluestock.in" target="_blank"
+                  rel="noopener" class="bs-site-link">bluestock.in ↗</a></div>
             </div>
             <div class="info-card reveal-up">
               <span class="info-card-label">Experience</span>
@@ -232,12 +274,7 @@
               <div class="info-card-val">umakondi167@gmail.com</div>
               <div class="info-card-sub">+91-9618036846</div>
             </div>
-            <div class="info-card cta-card reveal-up">
-              <a href="#contact" class="btn-editorial">
-                <span>Hire Me</span>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              </a>
-            </div>
+
           </div>
         </div>
       </div>
@@ -249,7 +286,7 @@
     <div class="e-container">
       <div class="e-section-head">
         <span class="e-section-num">03</span>
-        <span class="e-section-label">Journey</span>
+        <span class="e-section-label">Professional Experience</span>
       </div>
       <h2 class="e-heading reveal-split">Experience &amp; <em>Education</em></h2>
       <div class="timeline-list">
@@ -259,26 +296,36 @@
           <div class="tl-content">
             <div class="tl-role tl-role--with-logo">
               <!-- Bluestock icon: 3 gradient bars + white diagonal slash -->
-              <svg class="tl-bluestock-icon" width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Bluestock Fintech">
+              <svg class="tl-bluestock-icon" width="28" height="28" viewBox="0 0 32 32" fill="none"
+                xmlns="http://www.w3.org/2000/svg" aria-label="Bluestock Fintech">
                 <defs>
                   <linearGradient id="bs-grad-tl" x1="0" y1="0" x2="1" y2="1">
-                    <stop offset="0%" stop-color="#7B5EA7"/>
-                    <stop offset="100%" stop-color="#2B7FFF"/>
+                    <stop offset="0%" stop-color="#7B5EA7" />
+                    <stop offset="100%" stop-color="#2B7FFF" />
                   </linearGradient>
                 </defs>
-                <rect x="0" y="18" width="6" height="14" rx="1.5" transform="skewX(-10)" fill="url(#bs-grad-tl)"/>
-                <rect x="10" y="10" width="6" height="22" rx="1.5" transform="skewX(-10)" fill="url(#bs-grad-tl)"/>
-                <rect x="20" y="0" width="6" height="32" rx="1.5" transform="skewX(-10)" fill="url(#bs-grad-tl)"/>
-                <line x1="2" y1="30" x2="24" y2="2" stroke="white" stroke-width="2.2" stroke-linecap="round" opacity="0.9"/>
+                <rect x="0" y="18" width="6" height="14" rx="1.5" transform="skewX(-10)" fill="url(#bs-grad-tl)" />
+                <rect x="10" y="10" width="6" height="22" rx="1.5" transform="skewX(-10)" fill="url(#bs-grad-tl)" />
+                <rect x="20" y="0" width="6" height="32" rx="1.5" transform="skewX(-10)" fill="url(#bs-grad-tl)" />
+                <line x1="2" y1="30" x2="24" y2="2" stroke="white" stroke-width="2.2" stroke-linecap="round"
+                  opacity="0.9" />
               </svg>
               Software Development Engineer Intern
             </div>
-            <div class="tl-org">Bluestock Fintech · <a href="https://bluestock.in" target="_blank" rel="noopener" class="bs-site-link">bluestock.in ↗</a></div>
+            <div class="tl-org">Bluestock Fintech · <a href="https://bluestock.in" target="_blank" rel="noopener"
+                class="bs-site-link">bluestock.in ↗</a></div>
             <ul class="tl-points">
-              <li>Joined the internship program as an SDE intern, welcomed by the Bluestock team</li>
-              <li>Worked on software development tasks within a fintech product environment</li>
-              <li>Contributed to building and improving features for financial technology solutions</li>
-              <li>Collaborated with the engineering team to deliver scalable, maintainable code</li>
+              <li>Developed and integrated RESTful APIs using Node.js and Express.js for core fintech application
+                modules.</li>
+
+              <li>Performed API testing and debugging using Postman to ensure reliability and seamless backend
+                communication.</li>
+
+              <li>Collaborated with developers using Git and GitHub while following software development best practices.
+              </li>
+
+              <li>Improved understanding of backend development, debugging, version control, and software development
+                lifecycle.</li>
             </ul>
           </div>
           <div class="tl-type work bluestock-tag">SDE · Fintech</div>
@@ -290,13 +337,17 @@
             <div class="tl-role">Web Developer Intern</div>
             <div class="tl-org">Aim Technologies · Kakinada, A.P</div>
             <ul class="tl-points">
-              <li>Developed responsive web apps with backend APIs &amp; integrations</li>
-              <li>Built dynamic dashboards, form handling &amp; real-time features</li>
-              <li>Implemented interactive UI components transferable to React/Angular</li>
-              <li>Collaborated with designers &amp; backend teams for scalable solutions</li>
+              <li>Built responsive web applications using HTML, CSS, JavaScript, React, and modern frontend practices.
+              </li>
+
+              <li>Integrated REST APIs and database-driven features to enhance application functionality.</li>
+
+              <li>Improved UI responsiveness, user experience, and overall application performance.</li>
+
+              <li>Worked with developers to deliver scalable and maintainable web solutions.</li>
             </ul>
           </div>
-          <div class="tl-type work">Work</div>
+          <div class="tl-type work">Internship</div>
         </div>
 
         <div class="tl-item reveal-slide" data-year="2023">
@@ -305,8 +356,9 @@
             <div class="tl-role">B.Tech – Computer Science & Engineering</div>
             <div class="tl-org">Aditya University · Surampalem, A.P</div>
             <ul class="tl-points">
-              <li>CGPA: <strong>9.65</strong> — Ranked among Top 10% of class</li>
-              <li>Focused on DSA, OS, DBMS and Software Engineering</li>
+              <li>CGPA: <strong>9.65 / 10</strong></li>
+              <li>Coursework: Data Structures & Algorithms, Operating Systems, DBMS, Computer Networks, OOP and Software
+                Engineering.</li>
             </ul>
           </div>
           <div class="tl-type edu">Education</div>
@@ -317,7 +369,9 @@
           <div class="tl-content">
             <div class="tl-role">Board of Intermediate Education (MPC)</div>
             <div class="tl-org">Sri Chaitanya Junior College · Tuni, A.P</div>
-            <ul class="tl-points"><li>Marks: <strong>975 / 1000</strong></li></ul>
+            <ul class="tl-points">
+              <li>Marks: <strong>975 / 1000</strong></li>
+            </ul>
           </div>
           <div class="tl-type edu">Education</div>
         </div>
@@ -327,7 +381,9 @@
           <div class="tl-content">
             <div class="tl-role">Board of Secondary Education</div>
             <div class="tl-org">Sreshta Vidya Bhavan · Annavaram, A.P</div>
-            <ul class="tl-points"><li>Marks: <strong>588 / 600</strong></li></ul>
+            <ul class="tl-points">
+              <li>Marks: <strong>588 / 600</strong></li>
+            </ul>
           </div>
           <div class="tl-type edu">Education</div>
         </div>
@@ -341,9 +397,9 @@
     <div class="e-container">
       <div class="e-section-head">
         <span class="e-section-num">04</span>
-        <span class="e-section-label">Featured Work</span>
+        <span class="e-section-label">Software Engineering Portfolio</span>
       </div>
-      <h2 class="e-heading reveal-split">Selected <em>Projects</em></h2>
+      <h2 class="e-heading reveal-split">Featured <em>Software Projects</em></h2>
     </div>
 
     <div class="projects-list">
@@ -351,140 +407,160 @@
       <!-- Project 1 -->
       <div class="proj-item reveal-slide" id="project-1">
         <div class="proj-num">01</div>
-        <div class="proj-visual" style="--p-clr1: #7C3AED; --p-clr2: #06B6D4;">
-          <div class="proj-visual-inner">
-            <svg width="72" height="72" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1">
-              <rect x="3" y="3" width="18" height="18" rx="2"/>
-              <path d="M9 9h6M9 12h6M9 15h4"/>
-            </svg>
-          </div>
-          <div class="proj-visual-blur"></div>
+        <div class="proj-visual">
+          <img src="images/real-estate-marketplace.png" alt="Real Estate Marketplace" class="project-image">
         </div>
         <div class="proj-info">
           <div class="proj-tags">
-            <span>React.js</span><span>Node.js</span><span>Express.js</span><span>MongoDB</span>
+            <span>React</span><span>Node.js</span><span>Express.js</span><span>MongoDB</span><span>JWT</span><span>Redux
+              Toolkit</span>
           </div>
-          <h3 class="proj-title">Client Lead Management<br/><em>System (Mini CRM)</em></h3>
-          <p class="proj-desc">Full-stack CRM to manage and track client lead lifecycles — secure admin authentication, REST API backend, lead tracking, status updates and follow-up management.</p>
+          <h3 class="proj-title">Real Estate<br /><em>Marketplace</em></h3>
+          <div class="proj-desc">
+            <p>✔ Built a full-stack property marketplace using React, Node.js, Express.js and MongoDB.</p>
+            <p>✔ Implemented JWT authentication, protected routes and complete CRUD functionality.</p>
+            <p>✔ Developed responsive property listing, search and user profile management features.</p>
+          </div>
           <div class="proj-links">
-            <a href="https://github.com/KONDIUMAVARALAKSHMI/leadflow-crm-fullstack" target="_blank" rel="noopener" class="proj-link" id="project-1-github">
-              <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-              Source Code
+            <a href="https://github.com/KONDIUMAVARALAKSHMI/real-estate-marketplace" target="_blank" rel="noopener"
+              class="proj-link" id="project-1-github">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+                <path
+                  d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+              </svg>
+
+              View on GitHub
             </a>
           </div>
         </div>
-        <div class="proj-category">Web App</div>
+        <div class="proj-category">Full Stack</div>
       </div>
 
       <!-- Project 2 -->
       <div class="proj-item reveal-slide" id="project-2">
         <div class="proj-num">02</div>
-        <div class="proj-visual" style="--p-clr1: #059669; --p-clr2: #7C3AED;">
-          <div class="proj-visual-inner">
-            <svg width="72" height="72" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1">
-              <rect x="3" y="4" width="18" height="18" rx="2"/>
-              <line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/>
-              <line x1="3" y1="10" x2="21" y2="10"/>
-            </svg>
-          </div>
-          <div class="proj-visual-blur"></div>
+        <div class="proj-visual">
+          <img src="images/multi-tenant-saas.png" alt="Multi-Tenant SaaS Platform" class="project-image">
         </div>
         <div class="proj-info">
           <div class="proj-tags">
-            <span>Python</span><span>Django</span><span>SQLite</span><span>HTML/CSS/JS</span>
+            <span>React</span><span>Node.js</span><span>Express.js</span><span>MongoDB</span><span>JWT</span><span>Multi-Tenant</span>
           </div>
-          <h3 class="proj-title">Automated Exam Hall<br/><em>Allocation System</em></h3>
-          <p class="proj-desc">Web-based system automating exam seating and scheduling with real-time dashboards for admin and students. Improved seat utilization and eliminated manual scheduling effort.</p>
+          <h3 class="proj-title">Multi-Tenant SaaS<br /><em>Platform</em></h3>
+          <div class="proj-desc">
+            <p>✔ Built a scalable multi-tenant SaaS platform using the MERN stack.</p>
+            <p>✔ Implemented tenant isolation, JWT authentication and role-based access control.</p>
+            <p>✔ Developed centralized administration and secure organization management.</p>
+          </div>
           <div class="proj-links">
-            <a href="https://github.com/KONDIUMAVARALAKSHMI/Smart_Exam_Seating_Allocation" target="_blank" rel="noopener" class="proj-link" id="project-2-github">
-              <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-              Source Code
+            <a href="https://github.com/KONDIUMAVARALAKSHMI/multi-tenant-saas" target="_blank" rel="noopener"
+              class="proj-link" id="project-4-github">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+                <path
+                  d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+              </svg>
+
+              View on GitHub
             </a>
           </div>
         </div>
-        <div class="proj-category">Web App</div>
+        <div class="proj-category">Enterprise</div>
       </div>
 
       <!-- Project 3 -->
       <div class="proj-item reveal-slide" id="project-3">
         <div class="proj-num">03</div>
-        <div class="proj-visual" style="--p-clr1: #D97706; --p-clr2: #EF4444;">
-          <div class="proj-visual-inner">
-            <svg width="72" height="72" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1">
-              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-            </svg>
-          </div>
-          <div class="proj-visual-blur"></div>
+        <div class="proj-visual">
+          <img src="images/ai-academic-advisor.png" alt="AI Academic Advisor" class="project-image">
         </div>
         <div class="proj-info">
           <div class="proj-tags">
-            <span>JavaScript</span><span>Gemini API</span><span>HTML/CSS</span>
+            <span>Python</span><span>FastAPI</span><span>React</span><span>Gemini API</span><span>PostgreSQL</span>
           </div>
-          <h3 class="proj-title">BuddyBot — <em>AI Chat Assistant</em></h3>
-          <p class="proj-desc">AI-powered conversational web app using Google Gemini API with real-time response rendering, dynamic UI updates, robust error handling and streaming output.</p>
+          <h3 class="proj-title">AI Academic<br /><em>Advisor</em></h3>
+          <div class="proj-desc">
+            <p>✔ Built an AI-powered academic advisory platform using FastAPI, React and PostgreSQL.</p>
+            <p>✔ Integrated Gemini API for personalized recommendations and intelligent chatbot support.</p>
+            <p>✔ Developed study planning, academic analytics and course recommendation modules.</p>
+          </div>
           <div class="proj-links">
-            <a href="https://github.com/KONDIUMAVARALAKSHMI/Buddybot" target="_blank" rel="noopener" class="proj-link" id="project-3-github">
-              <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-              Source Code
+            <a href="https://github.com/KONDIUMAVARALAKSHMI/ai-academic-advisor" target="_blank" rel="noopener"
+              class="proj-link" id="project-5-github">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+                <path
+                  d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+              </svg>
+
+              View on GitHub
             </a>
           </div>
         </div>
-        <div class="proj-category">AI App</div>
+        <div class="proj-category">AI Platform</div>
       </div>
 
       <!-- Project 4 -->
       <div class="proj-item reveal-slide" id="project-4">
         <div class="proj-num">04</div>
-        <div class="proj-visual" style="--p-clr1: #F59E0B; --p-clr2: #D97706;">
+        <div class="proj-visual">
           <div class="proj-visual-inner">
-            <svg width="72" height="72" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1">
-              <path d="M18 8h1a4 4 0 0 1 0 8h-1M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8zM6 1v3M10 1v3M14 1v3"/>
-            </svg>
+            <img src="images/leadflow-crm.png" alt="LeadFlow CRM" class="project-image">
           </div>
           <div class="proj-visual-blur"></div>
         </div>
         <div class="proj-info">
           <div class="proj-tags">
-            <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>Responsive</span>
+            <span>React</span><span>Node.js</span><span>Express.js</span><span>MongoDB</span><span>REST
+              API</span><span>JWT</span>
           </div>
-          <h3 class="proj-title">Arome Cafe<br/><em>Website</em></h3>
-          <p class="proj-desc">A visually appealing, fully responsive website for a fictional coffee shop that provides info about the menu, location, and services with smooth interactions.</p>
+          <h3 class="proj-title">LeadFlow CRM<br /><em>Full Stack</em></h3>
+          <div class="proj-desc">
+            <p>✔ Built a full-stack CRM platform using React, Node.js, Express.js and MongoDB.</p>
+            <p>✔ Implemented JWT authentication, lead management and RESTful APIs.</p>
+            <p>✔ Developed dashboard analytics and business workflow management features.</p>
+          </div>
           <div class="proj-links">
-            <a href="https://github.com/KONDIUMAVARALAKSHMI/arome-cafe-website" target="_blank" rel="noopener" class="proj-link" id="project-4-github">
-              <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-              Source Code
+            <a href="https://github.com/KONDIUMAVARALAKSHMI/leadflow-crm-fullstack" target="_blank" rel="noopener"
+              class="proj-link" id="project-2-github">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+                <path
+                  d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+              </svg>
+              View on GitHub
             </a>
           </div>
         </div>
-        <div class="proj-category">Web App</div>
+        <div class="proj-category">Full Stack</div>
       </div>
 
       <!-- Project 5 -->
       <div class="proj-item reveal-slide" id="project-5">
         <div class="proj-num">05</div>
-        <div class="proj-visual" style="--p-clr1: #3B82F6; --p-clr2: #10B981;">
-          <div class="proj-visual-inner">
-            <svg width="72" height="72" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1">
-              <polyline points="3 17 9 11 13 15 21 7" />
-              <polyline points="14 7 21 7 21 14" />
-            </svg>
-          </div>
-          <div class="proj-visual-blur"></div>
+        <div class="proj-visual">
+          <img src="images/buddybot.png" alt="BuddyBot AI Chat Assistant" class="project-image">
         </div>
         <div class="proj-info">
           <div class="proj-tags">
-            <span>Python</span><span>Machine Learning</span><span>Pandas</span><span>Scikit-Learn</span>
+            <span>JavaScript</span><span>Gemini API</span><span>HTML/CSS</span><span>REST API</span>
           </div>
-          <h3 class="proj-title">Stock Price<br/><em>Prediction</em></h3>
-          <p class="proj-desc">A machine learning project that analyzes financial data metrics to forecast and predict future stock price trends utilizing predictive models.</p>
+          <h3 class="proj-title">BuddyBot — <em>AI Chat Assistant</em></h3>
+          <div class="proj-desc">
+            <p>✔ Developed an AI chat assistant using Google Gemini API and JavaScript.</p>
+            <p>✔ Implemented real-time conversations, chat history and error handling.</p>
+            <p>✔ Designed a responsive interface with seamless AI integration.</p>
+          </div>
           <div class="proj-links">
-            <a href="https://github.com/KONDIUMAVARALAKSHMI/StockPrice_Prediction" target="_blank" rel="noopener" class="proj-link" id="project-5-github">
-              <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-              Source Code
+            <a href="https://github.com/KONDIUMAVARALAKSHMI/Buddybot" target="_blank" rel="noopener" class="proj-link"
+              id="project-3-github">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+                <path
+                  d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+              </svg>
+
+              View on GitHub
             </a>
           </div>
         </div>
-        <div class="proj-category">Machine Learning</div>
+        <div class="proj-category">AI App</div>
       </div>
 
     </div>
@@ -503,63 +579,131 @@
         <div class="skill-group reveal-fade">
           <div class="sg-label">Languages</div>
           <div class="sg-pills">
-            <span>C++</span><span>Python</span><span>Java</span><span>SQL</span><span>JavaScript</span>
+            <span>C++</span>
+            <span>Java</span>
+            <span>Python</span>
+            <span>JavaScript</span>
+            <span>SQL</span>
           </div>
         </div>
         <div class="skill-group reveal-fade">
           <div class="sg-label">Frontend</div>
           <div class="sg-pills">
-            <span>React.js</span><span>HTML5</span><span>CSS3</span><span>JavaScript</span>
+            <span>React.js</span>
+            <span>HTML5</span>
+            <span>CSS3</span>
+            <span>Tailwind CSS</span>
+            <span>Responsive Design</span>
+
           </div>
         </div>
         <div class="skill-group reveal-fade">
           <div class="sg-label">Backend</div>
           <div class="sg-pills">
-            <span>Node.js</span><span>Express.js</span><span>Django</span><span>REST APIs</span><span>JWT Auth</span>
+            <span>Node.js</span>
+            <span>Express.js</span>
+            <span>FastAPI</span>
+            <span>Django</span>
+            <span>REST APIs</span>
+            <span>JWT</span>
           </div>
         </div>
         <div class="skill-group reveal-fade">
           <div class="sg-label">Databases</div>
           <div class="sg-pills">
-            <span>MongoDB</span><span>PostgreSQL</span><span>SQLite</span>
+            <span>MongoDB</span>
+            <span>PostgreSQL</span>
+            <span>MySQL</span>
+            <span>Redis</span>
+            <span>SQLite</span>
           </div>
         </div>
         <div class="skill-group reveal-fade">
           <div class="sg-label">DevOps & Tools</div>
           <div class="sg-pills">
-            <span>Docker</span><span>Git</span><span>GitHub</span>
+            <span>Docker</span>
+            <span>Git</span>
+            <span>GitHub</span>
+            <span>CI/CD</span>
+
+          </div>
+        </div>
+        <div class="skill-group reveal-fade">
+          <div class="sg-label">AI & Machine Learning</div>
+          <div class="sg-pills">
+            <span>Gemini API</span>
+            <span>Vertex AI</span>
+            <span>Machine Learning</span>
+            <span>NumPy</span>
+            <span>Pandas</span>
+            <span>Scikit-learn</span>
           </div>
         </div>
         <div class="skill-group reveal-fade">
           <div class="sg-label">Core CS</div>
           <div class="sg-pills">
-            <span>DSA</span><span>OS</span><span>DBMS</span><span>OOP</span>
+            <span>Data Structures & Algorithms</span>
+            <span>OOP</span>
+            <span>DBMS</span>
+            <span>Operating Systems</span>
+            <span>Computer Networks</span>
           </div>
         </div>
       </div>
 
       <!-- Skill Bars -->
       <div class="skill-bars reveal-fade">
+
         <div class="sk-bar-item">
-          <div class="sk-bar-head"><span>JavaScript / React / HTML-CSS</span><span class="sk-pct">90%</span></div>
-          <div class="sk-bar"><div class="sk-fill" data-w="90" style="--clr:#C9A84C"></div></div>
+          <div class="sk-bar-head">
+            <span>React.js • HTML • CSS</span>
+            <span class="sk-pct">90%</span>
+          </div>
+          <div class="sk-bar">
+            <div class="sk-fill" data-w="90" style="--clr:#C9A84C"></div>
+          </div>
         </div>
+
         <div class="sk-bar-item">
-          <div class="sk-bar-head"><span>Python / Django</span><span class="sk-pct">85%</span></div>
-          <div class="sk-bar"><div class="sk-fill" data-w="85" style="--clr:#8B5CF6"></div></div>
+          <div class="sk-bar-head">
+            <span>Node.js • Express.js • REST APIs</span>
+            <span class="sk-pct">88%</span>
+          </div>
+          <div class="sk-bar">
+            <div class="sk-fill" data-w="88" style="--clr:#2DD4BF"></div>
+          </div>
         </div>
+
         <div class="sk-bar-item">
-          <div class="sk-bar-head"><span>Node.js / Express / REST APIs</span><span class="sk-pct">82%</span></div>
-          <div class="sk-bar"><div class="sk-fill" data-w="82" style="--clr:#2DD4BF"></div></div>
+          <div class="sk-bar-head">
+            <span>Python • FastAPI • Django</span>
+            <span class="sk-pct">86%</span>
+          </div>
+          <div class="sk-bar">
+            <div class="sk-fill" data-w="86" style="--clr:#8B5CF6"></div>
+          </div>
         </div>
+
         <div class="sk-bar-item">
-          <div class="sk-bar-head"><span>MongoDB / PostgreSQL</span><span class="sk-pct">80%</span></div>
-          <div class="sk-bar"><div class="sk-fill" data-w="80" style="--clr:#F59E0B"></div></div>
+          <div class="sk-bar-head">
+            <span>MongoDB • PostgreSQL • Redis</span>
+            <span class="sk-pct">82%</span>
+          </div>
+          <div class="sk-bar">
+            <div class="sk-fill" data-w="82" style="--clr:#F59E0B"></div>
+          </div>
         </div>
+
         <div class="sk-bar-item">
-          <div class="sk-bar-head"><span>Docker / Git / DevOps</span><span class="sk-pct">75%</span></div>
-          <div class="sk-bar"><div class="sk-fill" data-w="75" style="--clr:#EC4899"></div></div>
+          <div class="sk-bar-head">
+            <span>Docker • Git • CI/CD</span>
+            <span class="sk-pct">80%</span>
+          </div>
+          <div class="sk-bar">
+            <div class="sk-fill" data-w="80" style="--clr:#EC4899"></div>
+          </div>
         </div>
+
       </div>
 
       <!-- Achievements & Certifications -->
@@ -567,33 +711,71 @@
         <div class="ach-block reveal-up">
           <h3 class="block-title">Achievements</h3>
           <ul class="ach-list">
-            <li><span class="ach-icon">🏆</span> 5-Star HackerRank — Python, C, Data Structures</li>
-            <li><span class="ach-icon">📊</span> Top 10% CGPA in class</li>
-            <li><span class="ach-icon">🥈</span> 2nd Prize — Technical Quiz, Veda 2024</li>
-            <li><span class="ach-icon">🚀</span> Smart India Hackathon 2025 Participant</li>
+            <li><span class="ach-icon">💻</span> Developed 50+ Software Projects across Full Stack, AI, Backend and
+              Enterprise Systems</li>
+
+            <li><span class="ach-icon">📂</span> Active GitHub Portfolio showcasing modern software engineering projects
+            </li>
+
+            <li><span class="ach-icon">🎓</span> B.Tech Computer Science Student with strong academic performance</li>
+
+            <li><span class="ach-icon">🚀</span> Passionate about building scalable web applications and AI-powered
+              software</li>
           </ul>
         </div>
         <div class="cert-block reveal-up">
           <h3 class="block-title">Certifications</h3>
           <ul class="cert-list">
+
             <li>
               <span class="cert-icon">✓</span>
               <div>
-                <div class="cert-name">Python Foundations Certificate</div>
+                <div class="cert-name">NVIDIA Fundamentals of Deep Learning</div>
               </div>
             </li>
+
             <li>
               <span class="cert-icon">✓</span>
               <div>
-                <div class="cert-name">Database Management System</div>
+                <div class="cert-name">JLPT N5 — Japanese Language Proficiency Test</div>
               </div>
             </li>
+
+            <li>
+              <span class="cert-icon">✓</span>
+              <div>
+                <div class="cert-name">Full Stack Web Development Certification</div>
+              </div>
+            </li>
+
+            <li>
+              <span class="cert-icon">✓</span>
+              <div>
+                <div class="cert-name">Docker Certification</div>
+              </div>
+            </li>
+
+            <li>
+              <span class="cert-icon">✓</span>
+              <div>
+                <div class="cert-name">Practical GitHub Actions Certification</div>
+              </div>
+            </li>
+
             <li>
               <span class="cert-icon">✓</span>
               <div>
                 <div class="cert-name">Basic SQL Certificate — HackerRank</div>
               </div>
             </li>
+
+            <li>
+              <span class="cert-icon">✓</span>
+              <div>
+                <div class="cert-name">Database Management System Certification</div>
+              </div>
+            </li>
+
           </ul>
         </div>
       </div>
@@ -638,7 +820,7 @@
       </div>
       <div class="contact-layout">
         <div class="contact-left">
-          <h2 class="e-heading reveal-split">Let's Build<br/><em>Something</em><br/>Together.</h2>
+          <h2 class="e-heading reveal-split">Let's Build<br /><em>Something</em><br />Together.</h2>
           <p class="e-body reveal-fade">
             I'm open to full-time roles, internships, freelance projects, or
             just a good conversation about tech. Reach out and let's chat!
@@ -653,19 +835,40 @@
               <span>+91-9618036846</span>
             </a>
             <a href="https://linkedin.com/in/" target="_blank" rel="noopener" class="c-link" id="social-linkedin">
-              <span class="c-link-icon">in</span>
+              <span class="c-link-icon">
+                <svg viewBox="0 0 24 24">
+                  <path
+                    d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V8.97h3.42v1.57h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.31zM5.34 7.4a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V8.97h3.56v11.48z" />
+                </svg>
+              </span>
               <span>LinkedIn Profile</span>
             </a>
-            <a href="https://www.codechef.com/users/uma_05" target="_blank" rel="noopener" class="c-link" id="social-codechef">
+            <a href="https://github.com/KONDIUMAVARALAKSHMI" target="_blank" rel="noopener" class="c-link"
+              id="social-github">
+              <span class="c-link-icon">
+                <svg viewBox="0 0 24 24">
+                  <path
+                    d="M12 2C6.48 2 2 6.58 2 12.26c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.48v-1.72c-2.78.62-3.37-1.2-3.37-1.2-.45-1.18-1.11-1.5-1.11-1.5-.91-.64.07-.63.07-.63 1 .08 1.53 1.05 1.53 1.05.9 1.56 2.36 1.11 2.94.85.09-.67.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.08 0-1.12.39-2.04 1.03-2.76-.1-.26-.45-1.31.1-2.72 0 0 .84-.27 2.75 1.05A9.38 9.38 0 0 1 12 6.84c.85 0 1.7.12 2.49.36 1.9-1.32 2.74-1.05 2.74-1.05.56 1.41.21 2.46.11 2.72.64.72 1.02 1.64 1.02 2.76 0 3.95-2.34 4.82-4.57 5.07.36.32.68.94.68 1.9v2.82c0 .27.18.6.69.49A10.27 10.27 0 0 0 22 12.26C22 6.58 17.52 2 12 2z" />
+                </svg>
+              </span>
+              <span>GitHub Profile</span>
+            </a>
+            <!-- <a href="https://www.codechef.com/users/uma_05" target="_blank" rel="noopener" class="c-link" id="social-codechef">
               <span class="c-link-icon">CC</span>
               <span>CodeChef Profile</span>
-            </a>
-            <a href="https://www.hackerrank.com/profile/umakondi167" target="_blank" rel="noopener" class="c-link" id="social-hackerrank">
-              <span class="c-link-icon">HR</span>
+            </a> -->
+            <a href="https://www.hackerrank.com/profile/umakondi167" target="_blank" rel="noopener" class="c-link"
+              id="social-hackerrank">
+              <span class="c-link-icon code-icon">
+                <span>HR</span>
+              </span>
               <span>HackerRank Profile</span>
             </a>
-            <a href="https://leetcode.com/u/UmaVaraLakshmi/" target="_blank" rel="noopener" class="c-link" id="social-leetcode">
-              <span class="c-link-icon">LC</span>
+            <a href="https://leetcode.com/u/UmaVaraLakshmi/" target="_blank" rel="noopener" class="c-link"
+              id="social-leetcode">
+              <span class="c-link-icon code-icon">
+                <span>&lt;/&gt;</span>
+              </span>
               <span>LeetCode Profile</span>
             </a>
           </div>
@@ -689,17 +892,21 @@
             </div>
             <div class="f-group">
               <label for="contact-message">Message</label>
-              <textarea id="contact-message" name="message" rows="5" placeholder="Tell me about your project or idea…"></textarea>
+              <textarea id="contact-message" name="message" rows="5"
+                placeholder="Tell me about your project or idea…"></textarea>
               <span class="f-err" id="message-error"></span>
             </div>
             <button type="submit" class="btn-editorial btn-full" id="btn-send">
               <span id="btn-send-text">Send Message</span>
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                <line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/>
+                <line x1="22" y1="2" x2="11" y2="13" />
+                <polygon points="22 2 15 22 11 13 2 9 22 2" />
               </svg>
             </button>
             <div class="f-success" id="form-success">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
               Message sent! I'll reply soon ✨
             </div>
           </form>
@@ -713,9 +920,11 @@
     <div class="e-container">
       <div class="footer-inner">
         <a href="#home" class="footer-logo">KUV<span>.</span></a>
-        <p class="footer-copy">© 2025 Kondi Uma VaraLakshmi. Designed & built with passion.</p>
+        <p class="footer-copy">© 2025 Kondi Uma VaraLakshmi. Designed & Developed by Kondi Uma VaraLakshmi</p>
         <a href="#home" class="back-top" id="back-to-top" aria-label="Back to top">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="18 15 12 9 6 15" />
+          </svg>
           Top
         </a>
       </div>
@@ -724,4 +933,5 @@
 
   <script src="script.js"></script>
 </body>
+
 </html>

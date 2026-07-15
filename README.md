@@ -30,17 +30,18 @@ portfolio_internship/
 
 ## 🎨 Color Palette
 
-| Role | Hex |
-|---|---|
-| Background | `#050816` |
+| Role            | Hex       |
+| --------------- | --------- |
+| Background      | `#050816` |
 | Electric Purple | `#7C3AED` |
-| Cyan | `#06B6D4` |
-| Amber | `#F59E0B` |
-| Emerald | `#10B981` |
+| Cyan            | `#06B6D4` |
+| Amber           | `#F59E0B` |
+| Emerald         | `#10B981` |
 
 ## 🚀 Getting Started
 
 ### Local Development
+
 Simply open `index.html` in your browser — no build step required!
 
 ```bash
@@ -51,49 +52,58 @@ start index.html
 ```
 
 ### Adding Your Info (Placeholders to Replace)
+
 Search for `[Your Name]`, `[Your City]`, `[your@email.com]` etc. in `index.html` and replace with your real information.
 
-| Placeholder | Replace With |
-|---|---|
-| `[Your Name]` | Your full name |
-| `[YN]` | Your initials |
-| `[Your City, Country]` | Your location |
-| `[Your Degree, College]` | Education info |
-| `[your@email.com]` | Your email |
-| Social link `href="#"` | Real GitHub/LinkedIn/Twitter URLs |
-| Project card content | Your real projects |
-| Timeline entries | Real experience |
+| Placeholder              | Replace With                      |
+| ------------------------ | --------------------------------- |
+| `[Your Name]`            | Your full name                    |
+| `[YN]`                   | Your initials                     |
+| `[Your City, Country]`   | Your location                     |
+| `[Your Degree, College]` | Education info                    |
+| `[your@email.com]`       | Your email                        |
+| Social link `href="#"`   | Real GitHub/LinkedIn/Twitter URLs |
+| Project card content     | Your real projects                |
+| Timeline entries         | Real experience                   |
 
 ### Adding Your Photo
+
 Replace the initials avatar with your photo by adding inside `.profile-avatar` in `index.html`:
+
 ```html
 <img src="your-photo.jpg" alt="[Your Name]" />
 ```
 
 ### Resume Download
+
 Change the `href="#"` on the **Download Resume** button to point to your PDF file:
+
 ```html
-<a href="resume.pdf" class="btn btn-primary" download>
+<a href="resume.pdf" class="btn btn-primary" download></a>
 ```
 
 ## 🌐 Deployment
 
 ### GitHub Pages (Free)
+
 1. Push this folder to a GitHub repository
 2. Go to **Settings → Pages**
 3. Set source to **main branch / root**
 4. Your site will be live at `https://yourusername.github.io/repo-name`
 
 ### Netlify (Free)
+
 1. Drag & drop your project folder to [netlify.com/drop](https://netlify.com/drop)
 2. Get an instant live URL!
 
 ### Vercel (Free)
+
 ```bash
 npx vercel
 ```
 
 ## 📋 SEO Checklist
+
 - ✅ Meta title and description
 - ✅ Open Graph tags
 - ✅ Semantic HTML (header, nav, section, article, footer)
@@ -102,4 +112,5 @@ npx vercel
 - ✅ Alt text placeholders ready
 
 ## 📜 License
+
 MIT — Free to use and modify.

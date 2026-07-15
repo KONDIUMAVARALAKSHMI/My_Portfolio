@@ -187,70 +187,44 @@ document.body.dataset.theme = currentTheme;
 })();
 
 // ── CUSTOM CURSOR ────────────────────────────────────────
-(function initCursor() {
-  const cursor  = document.getElementById('cursor');
-  const ring    = document.getElementById('cursor-ring');
-  const label   = document.getElementById('cursor-label');
-  if (!cursor || !ring || !label) return;
+console.log(
+  '%c✦ KUV Portfolio %c Built with Editorial Excellence',
+  '...',
+  '...'
+);
 
-  let mx = window.innerWidth / 2, my = window.innerHeight / 2;
-  let rx = mx, ry = my;
-  let labelX = mx, labelY = my;
+// ===== Minimal Cursor =====
 
-  // Track mouse coordinates
-  document.addEventListener('mousemove', e => {
-    mx = e.clientX;
-    my = e.clientY;
-  });
+const cursor = document.querySelector(".custom-cursor");
 
-  // Cursor and label follow with smooth lag
-  function animateRing() {
-    rx += (mx - rx) * 0.25;
-    ry += (my - ry) * 0.25;
-    cursor.style.left = rx + 'px';
-    cursor.style.top  = ry + 'px';
-    label.style.left  = rx + 'px';
-    label.style.top   = ry + 'px';
-    requestAnimationFrame(animateRing);
-  }
-  animateRing();
+if (cursor) {
 
-  // Hover states for interactive elements
-  const linkEls = document.querySelectorAll('a, button, .proj-item, .info-card, .badge, .skill-group');
-  linkEls.forEach(el => {
-    el.addEventListener('mouseenter', () => {
-      cursor.classList.add('link');
-      ring.classList.add('link');
+    window.addEventListener("mousemove", (e) => {
+        cursor.style.left = e.clientX + "px";
+        cursor.style.top = e.clientY + "px";
     });
-    el.addEventListener('mouseleave', () => {
-      cursor.classList.remove('link');
-      ring.classList.remove('link');
-    });
-  });
 
-  // Project items get "VIEW" label
-  const projItems = document.querySelectorAll('.proj-item');
-  projItems.forEach(el => {
-    el.addEventListener('mouseenter', () => {
-      cursor.classList.add('big');
-      ring.classList.add('big');
-      label.classList.add('show');
-    });
-    el.addEventListener('mouseleave', () => {
-      cursor.classList.remove('big');
-      ring.classList.remove('big');
-      label.classList.remove('show');
-    });
-  });
+    document.querySelectorAll("a, button, .proj-item").forEach((el) => {
 
-  // Hide on touch devices
-  if ('ontouchstart' in window) {
-    cursor.style.display  = 'none';
-    ring.style.display    = 'none';
-    label.style.display   = 'none';
-    document.body.style.cursor = 'auto';
-  }
-})();
+        el.addEventListener("mouseenter", () => {
+            cursor.classList.add("hover");
+        });
+
+        el.addEventListener("mouseleave", () => {
+            cursor.classList.remove("hover");
+        });
+
+    });
+
+    window.addEventListener("mousedown", () => {
+        cursor.classList.add("click");
+    });
+
+    window.addEventListener("mouseup", () => {
+        cursor.classList.remove("click");
+    });
+
+}
 
 // ── NAVBAR SCROLL ────────────────────────────────────────
 (function initNavbar() {
@@ -305,11 +279,11 @@ document.body.dataset.theme = currentTheme;
   if (!el) return;
 
   const words = [
-    'Web Developer',
-    'Full Stack Engineer',
-    'React Developer',
-    'Problem Solver',
-    'Tech Innovator',
+    'Software Engineer',
+    'Full Stack Developer',
+    'Backend Developer',
+    'AI Application Developer',
+    'Software Developer',
   ];
   let wi = 0, ci = 0, deleting = false;
   const SPEED_TYPE = 85, SPEED_DELETE = 40, PAUSE = 2000;

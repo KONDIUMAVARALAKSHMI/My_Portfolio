@@ -204,7 +204,7 @@ if (cursor) {
         cursor.style.top = e.clientY + "px";
     });
 
-    document.querySelectorAll("a, button, .proj-item").forEach((el) => {
+    document.querySelectorAll("a, button, .proj-item, .sticky-btn, .carousel-btn, .carousel-indicator").forEach((el) => {
 
         el.addEventListener("mouseenter", () => {
             cursor.classList.add("hover");
@@ -241,17 +241,81 @@ if (cursor) {
   const menu = document.getElementById('mobile-menu');
   if (!btn || !menu) return;
 
+  // Close menu function
+  const closeMenu = () => {
+    menu.classList.remove('open');
+    btn.classList.remove('open');
+    btn.setAttribute('aria-expanded', 'false');
+    document.body.classList.remove('menu-open');
+  };
+
+  // Open menu function
+  const openMenu = () => {
+    menu.classList.add('open');
+    btn.classList.add('open');
+    btn.setAttribute('aria-expanded', 'true');
+    document.body.classList.add('menu-open');
+    // Focus first link after menu opens
+    setTimeout(() => {
+      const firstLink = menu.querySelector('a');
+      if (firstLink) firstLink.focus();
+    }, 50);
+  };
+
+  // Toggle menu on button click
   btn.addEventListener('click', () => {
-    const open = !menu.classList.contains('open');
-    menu.classList.toggle('open', open);
-    btn.classList.toggle('open', open);
+    const isOpen = menu.classList.contains('open');
+    if (isOpen) {
+      closeMenu();
+    } else {
+      openMenu();
+    }
   });
 
+  // Close menu when clicking a link
   menu.querySelectorAll('a').forEach(a => {
     a.addEventListener('click', () => {
-      menu.classList.remove('open');
-      btn.classList.remove('open');
+      closeMenu();
+      // Return focus to hamburger button
+      setTimeout(() => btn.focus(), 300);
     });
+  });
+
+  // Close menu with Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && menu.classList.contains('open')) {
+      closeMenu();
+      btn.focus();
+    }
+  });
+
+  // Trap focus within menu when open
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Tab' && menu.classList.contains('open')) {
+      const focusableElements = menu.querySelectorAll('a');
+      if (focusableElements.length === 0) return;
+
+      const firstElement = focusableElements[0];
+      const lastElement = focusableElements[focusableElements.length - 1];
+
+      if (e.shiftKey && document.activeElement === firstElement) {
+        e.preventDefault();
+        lastElement.focus();
+      } else if (!e.shiftKey && document.activeElement === lastElement) {
+        e.preventDefault();
+        firstElement.focus();
+      }
+    }
+  });
+
+  // Close menu when clicking outside
+  document.addEventListener('click', (e) => {
+    const isClickInsideMenu = menu.contains(e.target);
+    const isClickOnButton = btn.contains(e.target);
+    
+    if (!isClickInsideMenu && !isClickOnButton && menu.classList.contains('open')) {
+      closeMenu();
+    }
   });
 })();
 
@@ -259,12 +323,19 @@ if (cursor) {
 (function initActiveNav() {
   const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('.nav-link');
+  const mobileLinks = document.querySelectorAll('.mobile-link');
 
   const obs = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
+        const sectionId = '#' + entry.target.id;
+        
         navLinks.forEach(link => {
-          link.classList.toggle('active', link.getAttribute('href') === '#' + entry.target.id);
+          link.classList.toggle('active', link.getAttribute('href') === sectionId);
+        });
+
+        mobileLinks.forEach(link => {
+          link.classList.toggle('active', link.getAttribute('href') === sectionId);
         });
       }
     });
@@ -376,6 +447,203 @@ if (cursor) {
       track.appendChild(clone);
     }
   });
+})();
+
+// ── STICKY NOTE CAROUSEL ────────────────────────────────
+(function initProjectCarousel() {
+  const carousel = document.querySelector('.projects-carousel');
+  const section = document.querySelector('.projects-section');
+  const stickyNotes = document.querySelectorAll('.sticky-note');
+  const prevBtn = document.querySelector('.carousel-nav-prev');
+  const nextBtn = document.querySelector('.carousel-nav-next');
+  const indicatorsContainer = document.querySelector('.carousel-indicators');
+  const progressCurrent = document.querySelector('.progress-current');
+  
+  if (!carousel || !stickyNotes.length) return;
+
+  let currentIndex = 0;
+  const totalNotes = stickyNotes.length;
+  let isAnimating = false;
+  let hasEntered = false;
+
+  // Respects prefers-reduced-motion
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Random rotation for each note (-3 to 3 degrees)
+  const getRandomRotation = () => (Math.random() * 6 - 3);
+
+  // Initialize carousel
+  function init() {
+    stickyNotes.forEach((note, idx) => {
+      note.style.setProperty('--rotation', `${getRandomRotation()}deg`);
+      note.classList.remove('active', 'entering', 'entering-next', 'entering-prev', 'exiting-next', 'exiting-prev', 'settling');
+      if (idx === 0) {
+        note.classList.add('active');
+      }
+    });
+
+    if (section) {
+      const entranceObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting || hasEntered) return;
+          hasEntered = true;
+          section.classList.add('is-visible');
+          if (!prefersReducedMotion) {
+            stickyNotes.forEach((note, idx) => {
+              note.classList.remove('active', 'entering', 'entering-next', 'entering-prev', 'exiting-next', 'exiting-prev', 'settling');
+              if (idx === currentIndex) {
+                note.classList.add('active', 'entering');
+              }
+            });
+          }
+        });
+      }, { threshold: 0.35 });
+
+      entranceObserver.observe(section);
+    }
+
+    // Create indicators only when a container is present
+    if (indicatorsContainer) {
+      stickyNotes.forEach((_, idx) => {
+        const indicator = document.createElement('button');
+        indicator.className = 'carousel-indicator';
+        indicator.setAttribute('role', 'tab');
+        indicator.setAttribute('aria-selected', idx === 0);
+        indicator.setAttribute('aria-label', `Go to project ${idx + 1}`);
+        if (idx === 0) indicator.classList.add('active');
+        
+        indicator.addEventListener('click', () => goToProject(idx));
+        indicatorsContainer.appendChild(indicator);
+      });
+    }
+
+    updateProgress();
+  }
+
+  // Update progress indicator
+  function updateProgress() {
+    if (progressCurrent) {
+      progressCurrent.textContent = currentIndex + 1;
+    }
+  }
+
+  // Navigate to specific project
+  function goToProject(index) {
+    if (isAnimating || index === currentIndex) return;
+    
+    const direction = index > currentIndex ? 'next' : 'prev';
+    currentIndex = index;
+    updateCarousel(direction);
+  }
+
+  // Next project
+  function nextProject() {
+    if (isAnimating) return;
+    currentIndex = (currentIndex + 1) % totalNotes;
+    updateCarousel('next');
+  }
+
+  // Previous project
+  function prevProject() {
+    if (isAnimating) return;
+    currentIndex = (currentIndex - 1 + totalNotes) % totalNotes;
+    updateCarousel('prev');
+  }
+
+  // Update carousel
+  function updateCarousel(direction) {
+    if (prefersReducedMotion) {
+      // Instant switch for reduced motion
+      stickyNotes.forEach((note, idx) => {
+        note.classList.remove('active', 'entering', 'exiting-next', 'exiting-prev', 'settling');
+        if (idx === currentIndex) {
+          note.classList.add('active');
+        }
+      });
+      updateIndicators();
+      updateProgress();
+      return;
+    }
+
+    isAnimating = true;
+
+    stickyNotes.forEach((note, idx) => {
+      note.classList.remove('entering', 'entering-next', 'entering-prev', 'exiting-next', 'exiting-prev', 'settling');
+      if (idx === currentIndex) {
+        note.classList.add('active');
+        note.classList.add(direction === 'next' ? 'entering-next' : 'entering-prev');
+      } else if (note.classList.contains('active')) {
+        note.classList.remove('active');
+        note.classList.add(direction === 'next' ? 'exiting-next' : 'exiting-prev');
+      }
+    });
+
+    // Wait for exit animation to complete
+    setTimeout(() => {
+      stickyNotes.forEach((note, idx) => {
+        note.classList.remove('exiting-next', 'exiting-prev', 'entering-next', 'entering-prev');
+        if (idx === currentIndex) {
+          note.classList.add('settling');
+          note.classList.add('active');
+        }
+      });
+
+      // Wait for settle animation
+      setTimeout(() => {
+        stickyNotes.forEach(note => note.classList.remove('entering', 'entering-next', 'entering-prev', 'settling'));
+        isAnimating = false;
+      }, 300);
+    }, 500);
+
+    updateIndicators();
+    updateProgress();
+  }
+
+  // Update indicators
+  function updateIndicators() {
+    const indicators = document.querySelectorAll('.carousel-indicator');
+    indicators.forEach((indicator, idx) => {
+      indicator.classList.toggle('active', idx === currentIndex);
+      indicator.setAttribute('aria-selected', idx === currentIndex);
+    });
+  }
+
+  // Keyboard navigation
+  document.addEventListener('keydown', (e) => {
+    if (!carousel.offsetParent) return; // Check if carousel is visible
+    
+    if (e.key === 'ArrowRight') {
+      e.preventDefault();
+      nextProject();
+    } else if (e.key === 'ArrowLeft') {
+      e.preventDefault();
+      prevProject();
+    }
+  });
+
+  // Button listeners
+  if (nextBtn) nextBtn.addEventListener('click', nextProject);
+  if (prevBtn) prevBtn.addEventListener('click', prevProject);
+
+  // Touch swipe support
+  let touchStartX = 0;
+  let touchEndX = 0;
+
+  carousel.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+  });
+
+  carousel.addEventListener('touchend', (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    if (touchStartX - touchEndX > 50) {
+      nextProject();
+    } else if (touchEndX - touchStartX > 50) {
+      prevProject();
+    }
+  });
+
+  // Initialize
+  init();
 })();
 
 // ── CONTACT FORM ─────────────────────────────────────────

@@ -13,7 +13,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+    href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Caveat:wght@400;500;600;700&family=Permanent+Marker&display=swap"
     rel="stylesheet" />
 </head>
 
@@ -82,8 +82,8 @@
             <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
           </svg>
         </button>
-        <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
-          <span></span><span></span>
+        <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-menu">
+          <span aria-hidden="true"></span><span aria-hidden="true"></span>
         </button>
       </div>
     </div>
@@ -123,9 +123,7 @@
         </span>
       </h1>
       <p class="hero-description">
-        Computer Science undergraduate with internship experience in Full Stack Development and Software Engineering.
-        Passionate about building scalable web applications, backend systems, and AI-powered software using modern
-        technologies.
+        Computer Science undergraduate with internship experience in Full Stack Development and Software Engineering. Passionate about building scalable web applications, backend systems, and AI-powered software using modern technologies.
       </p>
       <div class="hero-meta">
         <div class="hero-meta-item">
@@ -395,176 +393,391 @@
   <!-- ─── PROJECTS ─── -->
   <section class="editorial-section projects-section" id="projects">
     <div class="e-container">
-      <div class="e-section-head">
-        <span class="e-section-num">04</span>
-        <span class="e-section-label">Software Engineering Portfolio</span>
+      <div class="projects-head reveal-fade">
+        <p class="projects-kicker">MY WORK</p>
+        <h2 class="projects-scrap-title">Featured <em>Projects</em></h2>
+        <p class="projects-subtitle">Explore some of the projects I've built with passion and creativity.</p>
       </div>
-      <h2 class="e-heading reveal-split">Featured <em>Software Projects</em></h2>
     </div>
 
-    <div class="projects-list">
+      <div class="scrapbook-wrapper">
+        <div class="scrapbook-frame">
+          <img src="assets/scrapbook-board.jpeg" alt="Scrapbook corkboard" class="board-img">
+          <img src="assets/left-sticky-note.jpeg" alt="" class="left-note-img" aria-hidden="true">
 
-      <!-- Project 1 -->
-      <div class="proj-item reveal-slide" id="project-1">
-        <div class="proj-num">01</div>
-        <div class="proj-visual">
-          <img src="images/real-estate-marketplace.png" alt="Real Estate Marketplace" class="project-image">
-        </div>
-        <div class="proj-info">
-          <div class="proj-tags">
-            <span>React</span><span>Node.js</span><span>Express.js</span><span>MongoDB</span><span>JWT</span><span>Redux
-              Toolkit</span>
-          </div>
-          <h3 class="proj-title">Real Estate<br /><em>Marketplace</em></h3>
-          <div class="proj-desc">
-            <p>✔ Built a full-stack property marketplace using React, Node.js, Express.js and MongoDB.</p>
-            <p>✔ Implemented JWT authentication, protected routes and complete CRUD functionality.</p>
-            <p>✔ Developed responsive property listing, search and user profile management features.</p>
-          </div>
-          <div class="proj-links">
-            <a href="https://github.com/KONDIUMAVARALAKSHMI/real-estate-marketplace" target="_blank" rel="noopener"
-              class="proj-link" id="project-1-github">
-              <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
-                <path
-                  d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
-              </svg>
+          <div class="projects-carousel">
+            <article class="sticky-note" data-project-id="1">
+              <img src="images/real-estate-marketplace.png" alt="Real Estate Marketplace" class="note-screenshot">
+              <div class="note-info">
+                <div class="note-tags">
+                  <span>React</span><span>Node.js</span><span>MongoDB</span>
+                </div>
+                <h3 class="note-title">Real Estate <em>Marketplace</em></h3>
+                <p class="note-desc">✔ Built a full-stack property marketplace using React, Node.js, Express.js and MongoDB.</p>
+                <p class="note-desc">✔ Implemented JWT authentication, protected routes and complete CRUD functionality.</p>
+                <p class="note-desc">✔ Developed responsive property listing, search and user profile management features.</p>
+                <div class="note-stack">
+                  <span class="stack-label">Tech Stack</span>
+                  <div class="stack-icons">
+                    <span class="stack-pill">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                          <path d="M12 3l7 4v5c0 4.3-2.8 8.2-7 9-4.2-.8-7-4.7-7-9V7l7-4z"/>
+                          <path d="M9.5 12.2l1.4 1.4 3.6-3.6"/>
+                        </svg>
+                        <span>React</span>
+                      </span>
 
-              View on GitHub
-            </a>
-          </div>
+                      <span class="stack-pill">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                          <rect x="4" y="4" width="16" height="16" rx="3"/>
+                          <path d="M8 8h8M8 12h8M8 16h5"/>
+                        </svg>
+                        <span>Node.js</span>
+                      </span>
+
+                      <span class="stack-pill">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                          <path d="M4 8h16v8H4z"/>
+                          <path d="M8 8v8"/>
+                          <path d="M16 8v8"/>
+                          <path d="M6 12h12"/>
+                        </svg>
+                        <span>MongoDB</span>
+                      </span>
+
+                      <!-- Express.js -->
+                      <span class="stack-pill">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                          <path d="M5 6h14v12H5z"/>
+                          <path d="M8 9h8M8 12h6M8 15h8"/>
+                        </svg>
+                        <span>Express.js</span>
+                      </span>
+
+                      <!-- JWT -->
+                      <span class="stack-pill">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                          <circle cx="12" cy="6" r="2"/>
+                          <circle cx="7" cy="12" r="2"/>
+                          <circle cx="17" cy="12" r="2"/>
+                          <circle cx="12" cy="18" r="2"/>
+                          <path d="M12 8v8M9 12h6"/>
+                        </svg>
+                        <span>JWT</span>
+                      </span>
+
+                      <!-- Redux Toolkit -->
+                      <span class="stack-pill">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                          <path d="M7 8c1.5-2 5-2 6.5 0"/>
+                          <path d="M17 8c1.5 2 1 5-1 6.5"/>
+                          <path d="M7 16c-2-1.5-2.5-5-1-6.5"/>
+                          <circle cx="7" cy="8" r="1.5"/>
+                          <circle cx="17" cy="8" r="1.5"/>
+                          <circle cx="12" cy="18" r="1.5"/>
+                        </svg>
+                        <span>Redux Toolkit</span>
+                      </span>
+                      </div>
+                     </div>
+                    <div class="note-links">
+                  <a href="https://github.com/KONDIUMAVARALAKSHMI/real-estate-marketplace" target="_blank" rel="noopener" class="note-btn note-btn--gh">GitHub</a>
+                                      <!-- <a href="#projects" class="note-btn note-btn--demo">Live Demo</a> -->
+                  </div>
+                </div>
+              </article>
+
+                              <article class="sticky-note" data-project-id="2">
+                                <img src="images/multi-tenant-saas.png" alt="Multi-Tenant SaaS Platform" class="note-screenshot">
+                                <div class="note-info">
+                                  <div class="note-tags">
+                                    <span>React</span><span>Express.js</span><span>MongoDB</span>
+                                  </div>
+                                  <h3 class="note-title">Multi-Tenant SaaS <em>Platform</em></h3>
+                                  <p class="note-desc">✔ Built a scalable multi-tenant SaaS platform using the MERN stack.</p>
+
+                                  <p class="note-desc">✔ Implemented tenant isolation, JWT authentication and role-based access control.</p>
+
+                                  <p class="note-desc">✔ Developed centralized administration and secure organization management.</p>
+                                  <div class="note-stack">
+                                    <span class="stack-label">Tech Stack</span>
+                                    <div class="stack-icons">
+                                      <span class="stack-pill">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                        <path d="M12 3l7 4v5c0 4.3-2.8 8.2-7 9-4.2-.8-7-4.7-7-9V7l7-4z"/>
+                        <path d="M9.5 12.2l1.4 1.4 3.6-3.6"/>
+                      </svg>
+                      <span>React</span>
+                    </span>
+
+                    <span class="stack-pill">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                        <rect x="4" y="4" width="16" height="16" rx="3"/>
+                        <path d="M8 8h8M8 12h8M8 16h5"/>
+                      </svg>
+                      <span>Node.js</span>
+                    </span>
+
+                    <span class="stack-pill">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                        <path d="M5 6h14v12H5z"/>
+                        <path d="M8 9h8M8 12h6M8 15h8"/>
+                      </svg>
+                      <span>Express.js</span>
+                    </span>
+
+                    <span class="stack-pill">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                        <path d="M4 8h16v8H4z"/>
+                        <path d="M8 8v8"/>
+                        <path d="M16 8v8"/>
+                        <path d="M6 12h12"/>
+                      </svg>
+                      <span>MongoDB</span>
+                    </span>
+
+                    <span class="stack-pill">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                        <circle cx="12" cy="6" r="2"/>
+                        <circle cx="7" cy="12" r="2"/>
+                        <circle cx="17" cy="12" r="2"/>
+                        <circle cx="12" cy="18" r="2"/>
+                        <path d="M12 8v8M9 12h6"/>
+                      </svg>
+                      <span>JWT</span>
+                    </span>
+
+                    <span class="stack-pill">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                        <rect x="5" y="5" width="6" height="6" rx="1"/>
+                        <rect x="13" y="5" width="6" height="6" rx="1"/>
+                        <rect x="5" y="13" width="6" height="6" rx="1"/>
+                        <rect x="13" y="13" width="6" height="6" rx="1"/>
+                      </svg>
+                      <span>Multi-Tenant</span>
+                    </span>
+                </div>
+              </div>
+              <div class="note-links">
+                <a href="https://github.com/KONDIUMAVARALAKSHMI/multi-tenant-saas" target="_blank" rel="noopener" class="note-btn note-btn--gh">GitHub</a>
+                <!-- <a href="#projects" class="note-btn note-btn--demo">Live Demo</a> -->
+              </div>
+            </div>
+          </article>
+
+          <article class="sticky-note" data-project-id="3">
+            <img src="images/ai-academic-advisor.png" alt="AI Academic Advisor" class="note-screenshot">
+            <div class="note-info">
+              <div class="note-tags">
+                <span>Python</span><span>FastAPI</span><span>React</span>
+              </div>
+              <h3 class="note-title">AI Academic <em>Advisor</em></h3>
+              <p class="note-desc">✔ Built an AI-powered academic advisory platform using FastAPI, React and PostgreSQL.</p>
+              <p class="note-desc">✔ Integrated Gemini API for personalized recommendations and intelligent chatbot support.</p>
+              <p class="note-desc">✔ Developed study planning, academic analytics and course recommendation modules.</p>
+              <div class="note-stack">
+                <span class="stack-label">Tech Stack</span>
+                                    <div class="stack-icons">
+                                    <span class="stack-pill">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                        <path d="M5 17V7l7-4 7 4v10l-7 4-7-4z"/>
+                        <path d="M12 3v18"/>
+                      </svg>
+                      <span>Python</span>
+                    </span>
+
+                    <span class="stack-pill">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                        <path d="M12 3h8v6l-4 4-4-4V3z"/>
+                        <path d="M4 13h8"/>
+                      </svg>
+                      <span>FastAPI</span>
+                    </span>
+
+                    <span class="stack-pill">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                        <path d="M12 3l7 4v5c0 4.3-2.8 8.2-7 9-4.2-.8-7-4.7-7-9V7l7-4z"/>
+                        <path d="M9.5 12.2l1.4 1.4 3.6-3.6"/>
+                      </svg>
+                      <span>React</span>
+                    </span>
+
+                    <span class="stack-pill">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                        <path d="M6 4h12v16H6z"/>
+                        <path d="M8 8h8M8 12h8M8 16h5"/>
+                      </svg>
+                      <span>Gemini API</span>
+                    </span>
+
+                    <span class="stack-pill">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                        <ellipse cx="12" cy="6" rx="6" ry="2.5"/>
+                        <path d="M6 6v12c0 1.4 2.7 2.5 6 2.5s6-1.1 6-2.5V6"/>
+                        <path d="M6 12c0 1.4 2.7 2.5 6 2.5s6-1.1 6-2.5"/>
+                      </svg>
+                      <span>PostgreSQL</span>
+              </span>
+                </div>
+              </div>
+              <div class="note-links">
+                <a href="https://github.com/KONDIUMAVARALAKSHMI/ai-academic-advisor" target="_blank" rel="noopener" class="note-btn note-btn--gh">GitHub</a>
+                <!-- <a href="#projects" class="note-btn note-btn--demo">Live Demo</a> -->
+              </div>
+            </div>
+          </article>
+
+          <article class="sticky-note" data-project-id="4">
+            <img src="images/leadflow-crm.png" alt="LeadFlow CRM" class="note-screenshot">
+            <div class="note-info">
+              <div class="note-tags">
+                <span>React</span><span>Node.js</span><span>MongoDB</span>
+              </div>
+              <h3 class="note-title">LeadFlow CRM <em>Platform</em></h3>
+              <p class="note-desc">✔ Built a full-stack CRM platform using React, Node.js, Express.js and MongoDB.</p>
+              <p class="note-desc">✔ Implemented JWT authentication, lead management and RESTful APIs.</p>
+              <p class="note-desc">✔ Developed dashboard analytics and business workflow management features.</p>
+              <div class="note-stack">
+                <span class="stack-label">Tech Stack</span>
+                <div class="stack-icons">
+                  <span class="stack-pill">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                              <path d="M12 3l7 4v5c0 4.3-2.8 8.2-7 9-4.2-.8-7-4.7-7-9V7l7-4z"/>
+                              <path d="M9.5 12.2l1.4 1.4 3.6-3.6"/>
+                            </svg>
+                            <span>React</span>
+                          </span>
+
+                          <span class="stack-pill">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                              <rect x="4" y="4" width="16" height="16" rx="3"/>
+                              <path d="M8 8h8M8 12h8M8 16h5"/>
+                            </svg>
+                            <span>Node.js</span>
+                          </span>
+
+                          <span class="stack-pill">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                              <path d="M5 6h14v12H5z"/>
+                              <path d="M8 9h8M8 12h6M8 15h8"/>
+                            </svg>
+                            <span>Express.js</span>
+                          </span>
+
+                          <span class="stack-pill">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                              <path d="M4 8h16v8H4z"/>
+                              <path d="M8 8v8"/>
+                              <path d="M16 8v8"/>
+                              <path d="M6 12h12"/>
+                            </svg>
+                            <span>MongoDB</span>
+                          </span>
+
+                          <span class="stack-pill">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                              <path d="M8 12h8"/>
+                              <path d="M13 7l5 5-5 5"/>
+                              <path d="M11 17l-5-5 5-5"/>
+                            </svg>
+                            <span>REST API</span>
+                          </span>
+
+                          <span class="stack-pill">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                              <circle cx="12" cy="6" r="2"/>
+                              <circle cx="7" cy="12" r="2"/>
+                              <circle cx="17" cy="12" r="2"/>
+                              <circle cx="12" cy="18" r="2"/>
+                              <path d="M12 8v8M9 12h6"/>
+                            </svg>
+                            <span>JWT</span>
+              </span>
+                </div>
+              </div>
+              <div class="note-links">
+                <a href="https://github.com/KONDIUMAVARALAKSHMI/leadflow-crm-fullstack" target="_blank" rel="noopener" class="note-btn note-btn--gh">GitHub</a>
+                <!-- <a href="#projects" class="note-btn note-btn--demo">Live Demo</a> -->
+              </div>
+            </div>
+          </article>
+
+          <article class="sticky-note" data-project-id="5">
+            <img src="images/buddybot.png" alt="BuddyBot AI Chat Assistant" class="note-screenshot">
+            <div class="note-info">
+              <div class="note-tags">
+                <span>JavaScript</span><span>Gemini API</span>
+              </div>
+              <h3 class="note-title">BuddyBot — <em>AI Chat</em></h3>
+              <p class="note-desc">✔ Developed an AI chat assistant using Google Gemini API and JavaScript.</p>
+              <p class="note-desc"> ✔ Implemented real-time conversations, chat history and error handling.</p>
+              <p class="note-desc">✔ Designed a responsive interface with seamless AI integration.</p>
+              <div class="note-stack">
+                <span class="stack-label">Tech Stack</span>
+                    <div class="stack-icons">
+                      <span class="stack-pill">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                          <path d="M12 3l7 4v5c0 4.3-2.8 8.2-7 9-4.2-.8-7-4.7-7-9V7l7-4z"/>
+                          <path d="M9.5 12.2l1.4 1.4 3.6-3.6"/>
+                        </svg>
+                        <span>JavaScript</span>
+                      </span>
+
+                      <span class="stack-pill">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                          <path d="M6 4h12v16H6z"/>
+                          <path d="M8 8h8M8 12h8M8 16h5"/>
+                        </svg>
+                        <span>Gemini API</span>
+                      </span>
+
+                      <span class="stack-pill">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                          <rect x="4" y="4" width="16" height="16" rx="2"/>
+                          <path d="M4 10h16M10 4v16"/>
+                        </svg>
+                        <span>HTML/CSS</span>
+                      </span>
+
+                      <span class="stack-pill">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                          <path d="M8 12h8"/>
+                          <path d="M13 7l5 5-5 5"/>
+                          <path d="M11 17l-5-5 5-5"/>
+                        </svg>
+              <span>REST API</span>
+            </span>
+             </div>
+              </div>
+              <div class="note-links">
+                <a href="https://github.com/KONDIUMAVARALAKSHMI/Buddybot" target="_blank" rel="noopener" class="note-btn note-btn--gh">GitHub</a>
+                <!-- <a href="#projects" class="note-btn note-btn--demo">Live Demo</a> -->
+              </div>
+            </div>
+          </article>
         </div>
-        <div class="proj-category">Full Stack</div>
+
+        <button class="carousel-nav carousel-nav-prev" aria-label="Previous project" title="Previous">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+        </button>
+        <button class="carousel-nav carousel-nav-next" aria-label="Next project" title="Next">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </button>
       </div>
 
-      <!-- Project 2 -->
-      <div class="proj-item reveal-slide" id="project-2">
-        <div class="proj-num">02</div>
-        <div class="proj-visual">
-          <img src="images/multi-tenant-saas.png" alt="Multi-Tenant SaaS Platform" class="project-image">
+      <div class="projects-meta-row">
+        <div class="carousel-indicators" role="tablist" aria-label="Select project"></div>
+        <div class="projects-counter">
+          <span class="progress-current">1</span><span class="counter-sep">/</span><span class="counter-total">05</span>
         </div>
-        <div class="proj-info">
-          <div class="proj-tags">
-            <span>React</span><span>Node.js</span><span>Express.js</span><span>MongoDB</span><span>JWT</span><span>Multi-Tenant</span>
-          </div>
-          <h3 class="proj-title">Multi-Tenant SaaS<br /><em>Platform</em></h3>
-          <div class="proj-desc">
-            <p>✔ Built a scalable multi-tenant SaaS platform using the MERN stack.</p>
-            <p>✔ Implemented tenant isolation, JWT authentication and role-based access control.</p>
-            <p>✔ Developed centralized administration and secure organization management.</p>
-          </div>
-          <div class="proj-links">
-            <a href="https://github.com/KONDIUMAVARALAKSHMI/multi-tenant-saas" target="_blank" rel="noopener"
-              class="proj-link" id="project-4-github">
-              <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
-                <path
-                  d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
-              </svg>
-
-              View on GitHub
-            </a>
-          </div>
-        </div>
-        <div class="proj-category">Enterprise</div>
       </div>
-
-      <!-- Project 3 -->
-      <div class="proj-item reveal-slide" id="project-3">
-        <div class="proj-num">03</div>
-        <div class="proj-visual">
-          <img src="images/ai-academic-advisor.png" alt="AI Academic Advisor" class="project-image">
-        </div>
-        <div class="proj-info">
-          <div class="proj-tags">
-            <span>Python</span><span>FastAPI</span><span>React</span><span>Gemini API</span><span>PostgreSQL</span>
-          </div>
-          <h3 class="proj-title">AI Academic<br /><em>Advisor</em></h3>
-          <div class="proj-desc">
-            <p>✔ Built an AI-powered academic advisory platform using FastAPI, React and PostgreSQL.</p>
-            <p>✔ Integrated Gemini API for personalized recommendations and intelligent chatbot support.</p>
-            <p>✔ Developed study planning, academic analytics and course recommendation modules.</p>
-          </div>
-          <div class="proj-links">
-            <a href="https://github.com/KONDIUMAVARALAKSHMI/ai-academic-advisor" target="_blank" rel="noopener"
-              class="proj-link" id="project-5-github">
-              <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
-                <path
-                  d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
-              </svg>
-
-              View on GitHub
-            </a>
-          </div>
-        </div>
-        <div class="proj-category">AI Platform</div>
-      </div>
-
-      <!-- Project 4 -->
-      <div class="proj-item reveal-slide" id="project-4">
-        <div class="proj-num">04</div>
-        <div class="proj-visual">
-          <div class="proj-visual-inner">
-            <img src="images/leadflow-crm.png" alt="LeadFlow CRM" class="project-image">
-          </div>
-          <div class="proj-visual-blur"></div>
-        </div>
-        <div class="proj-info">
-          <div class="proj-tags">
-            <span>React</span><span>Node.js</span><span>Express.js</span><span>MongoDB</span><span>REST
-              API</span><span>JWT</span>
-          </div>
-          <h3 class="proj-title">LeadFlow CRM<br /><em>Full Stack</em></h3>
-          <div class="proj-desc">
-            <p>✔ Built a full-stack CRM platform using React, Node.js, Express.js and MongoDB.</p>
-            <p>✔ Implemented JWT authentication, lead management and RESTful APIs.</p>
-            <p>✔ Developed dashboard analytics and business workflow management features.</p>
-          </div>
-          <div class="proj-links">
-            <a href="https://github.com/KONDIUMAVARALAKSHMI/leadflow-crm-fullstack" target="_blank" rel="noopener"
-              class="proj-link" id="project-2-github">
-              <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
-                <path
-                  d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
-              </svg>
-              View on GitHub
-            </a>
-          </div>
-        </div>
-        <div class="proj-category">Full Stack</div>
-      </div>
-
-      <!-- Project 5 -->
-      <div class="proj-item reveal-slide" id="project-5">
-        <div class="proj-num">05</div>
-        <div class="proj-visual">
-          <img src="images/buddybot.png" alt="BuddyBot AI Chat Assistant" class="project-image">
-        </div>
-        <div class="proj-info">
-          <div class="proj-tags">
-            <span>JavaScript</span><span>Gemini API</span><span>HTML/CSS</span><span>REST API</span>
-          </div>
-          <h3 class="proj-title">BuddyBot — <em>AI Chat Assistant</em></h3>
-          <div class="proj-desc">
-            <p>✔ Developed an AI chat assistant using Google Gemini API and JavaScript.</p>
-            <p>✔ Implemented real-time conversations, chat history and error handling.</p>
-            <p>✔ Designed a responsive interface with seamless AI integration.</p>
-          </div>
-          <div class="proj-links">
-            <a href="https://github.com/KONDIUMAVARALAKSHMI/Buddybot" target="_blank" rel="noopener" class="proj-link"
-              id="project-3-github">
-              <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
-                <path
-                  d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
-              </svg>
-
-              View on GitHub
-            </a>
-          </div>
-        </div>
-        <div class="proj-category">AI App</div>
-      </div>
-
     </div>
   </section>
+
 
   <!-- ─── SKILLS ─── -->
   <section class="editorial-section skills-section" id="skills">

@@ -204,7 +204,7 @@ if (cursor) {
         cursor.style.top = e.clientY + "px";
     });
 
-    document.querySelectorAll("a, button, .proj-item, .sticky-btn, .carousel-btn, .carousel-indicator").forEach((el) => {
+    document.querySelectorAll("a, button, .proj-item, .sticky-btn, .carousel-btn, .carousel-indicator, .hero-game-card").forEach((el) => {
 
         el.addEventListener("mouseenter", () => {
             cursor.classList.add("hover");
@@ -395,6 +395,21 @@ if (cursor) {
   }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
 
   els.forEach(el => obs.observe(el));
+})();
+
+// ── LOTTIE ILLUSTRATION FADE-IN ──────────────────────────
+(function initLottieReveal() {
+  const el = document.getElementById('about-lottie');
+  if (!el) return;
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      // Small delay so the section heading animates first
+      setTimeout(() => el.classList.add('lottie-visible'), 200);
+      obs.unobserve(el);
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+  obs.observe(el);
 })();
 
 // ── SKILL BAR ANIMATION ──────────────────────────────────
@@ -746,8 +761,511 @@ if (cursor) {
   }, 1900);
 })();
 
+// ── GAME OVERLAY ──────────────────────────────────────────
+(function initGameOverlay() {
+  const overlay      = document.getElementById('game-overlay');
+  const returnBtn    = document.getElementById('btn-return-portfolio');
+  const restartBtn   = document.getElementById('btn-restart-game');
+  const canvas       = document.getElementById('game-canvas');
+  const scoreEl      = document.getElementById('game-score');
+  const finalScoreEl = document.getElementById('game-final-score');
+  const instructionEl= document.getElementById('game-instruction');
+  const gameOverPanel= document.getElementById('game-over-panel');
+
+  if (!overlay || !canvas) return;
+
+  const ctx = canvas.getContext('2d');
+  let animationFrameId = null;
+  let gameRunning = false;
+  let gameOver = false;
+  let score = 0;
+  let lastTime = 0;
+  
+  // Game states: 'intro', 'countdown', 'playing', 'gameover'
+  let gameState = 'intro';
+  let countdownVal = 3;
+  let countdownTimer = 0;
+
+  // ── Paper Airplane ───────────────────────────────────────
+  const airplane = {
+    x: 0, y: 0, vy: 0,
+    targetX: 0, targetY: 0,
+    radius: 12,
+    gravity: 0.38,
+    jump: -6.8,
+    angle: 0
+  };
+
+  // ── Obstacle clouds ──────────────────────────────────────
+  const gameClouds = [];
+  const MAX_CLOUDS = 3;
+  const CLOUD_SPEED = 3.2;
+
+  // ── Collectible Stars ────────────────────────────────────
+  const gameStars = [];
+  const MAX_STARS = 2;
+
+  // ── Canvas resize ────────────────────────────────────────
+  function resizeCanvas() {
+    const hero = document.querySelector('.hero');
+    canvas.width  = hero ? hero.clientWidth  : window.innerWidth;
+    canvas.height = hero ? hero.clientHeight : window.innerHeight;
+  }
+
+  window.addEventListener('resize', () => { if (gameRunning) resizeCanvas(); });
+
+  // ── Cloud helpers ─────────────────────────────────────────
+  function spawnCloud(startX) {
+    const scale = 0.5 + Math.random() * 0.55;
+    gameClouds.push({
+      x: startX,
+      y: 100 + Math.random() * (canvas.height - 200),
+      scale,
+      opacity: 0.75 + Math.random() * 0.25,
+      passed: false
+    });
+  }
+
+  function drawCloudShape(cx, cy, scale, alpha) {
+    ctx.save();
+    ctx.translate(cx, cy);
+    ctx.scale(scale, scale);
+    ctx.beginPath();
+    ctx.arc(0,   0,  40, Math.PI * 0.5, Math.PI * 1.5);
+    ctx.arc(30, -30, 50, Math.PI * 1,   Math.PI * 2);
+    ctx.arc(90, -20, 40, Math.PI * 1.2, Math.PI * 2);
+    ctx.arc(120, 10, 30, Math.PI * 1.5, Math.PI * 0.5);
+    ctx.closePath();
+    const isLight = document.body.dataset.theme === 'light';
+    ctx.fillStyle = isLight
+      ? `rgba(255, 255, 255, ${alpha * 0.85})`
+      : `rgba(201, 168, 76, ${alpha * 0.35})`;
+    ctx.fill();
+    ctx.restore();
+  }
+
+  // ── Star helpers ──────────────────────────────────────────
+  function spawnStar(startX) {
+    gameStars.push({
+      x: startX || canvas.width + 50 + Math.random() * 300,
+      y: 80 + Math.random() * (canvas.height - 160),
+      radius: 8,
+      angle: Math.random() * Math.PI * 2,
+      pulseSpeed: 0.05 + Math.random() * 0.05,
+      collected: false
+    });
+  }
+
+  function drawStarShape(sx, sy, size, spinAngle) {
+    ctx.save();
+    ctx.translate(sx, sy);
+    ctx.rotate(spinAngle);
+    ctx.beginPath();
+    const gold = getComputedStyle(document.documentElement).getPropertyValue('--gold').trim() || '#C9A84C';
+    ctx.fillStyle = gold;
+    
+    // Draw simple 5-point star
+    const spikes = 5;
+    const outerRadius = size;
+    const innerRadius = size / 2;
+    let rot = Math.PI / 2 * 3;
+    let x = 0, y = 0;
+    const step = Math.PI / spikes;
+
+    ctx.beginPath();
+    ctx.moveTo(0, -outerRadius);
+    for (let i = 0; i < spikes; i++) {
+      x = Math.cos(rot) * outerRadius;
+      y = Math.sin(rot) * outerRadius;
+      ctx.lineTo(x, y);
+      rot += step;
+
+      x = Math.cos(rot) * innerRadius;
+      y = Math.sin(rot) * innerRadius;
+      ctx.lineTo(x, y);
+      rot += step;
+    }
+    ctx.lineTo(0, -outerRadius);
+    ctx.closePath();
+    ctx.fill();
+
+    // Subtle outer glow
+    ctx.shadowBlur = 10;
+    ctx.shadowColor = gold;
+    ctx.restore();
+  }
+
+  // ── Collision ─────────────────────────────────────────────
+  function checkCollision(obj, cloud) {
+    const puffs = [
+      { dx: 0,   dy: 0,   r: 40 },
+      { dx: 30,  dy: -30, r: 50 },
+      { dx: 90,  dy: -20, r: 40 },
+      { dx: 120, dy: 10,  r: 30 }
+    ];
+    for (const p of puffs) {
+      const cx = cloud.x + p.dx * cloud.scale;
+      const cy = cloud.y + p.dy * cloud.scale;
+      const r  = p.r * cloud.scale;
+      const d  = Math.hypot(obj.x - cx, obj.y - cy);
+      if (d < obj.radius + r - 8) return true;
+    }
+    return false;
+  }
+
+  // ── Update score display with premium animation ──────────
+  function addScore(points) {
+    score += points;
+    if (scoreEl) {
+      scoreEl.textContent = score;
+      // Trigger pop animation
+      const parent = scoreEl.parentElement;
+      if (parent) {
+        parent.classList.remove('pop');
+        void parent.offsetWidth; // trigger reflow
+        parent.classList.add('pop');
+      }
+    }
+  }
+
+  // ── Game state helpers ────────────────────────────────────
+  function showGameOver() {
+    gameOver = true;
+    gameState = 'gameover';
+    if (animationFrameId) {
+      cancelAnimationFrame(animationFrameId);
+      animationFrameId = null;
+    }
+    if (finalScoreEl) finalScoreEl.textContent = score;
+    if (gameOverPanel) gameOverPanel.classList.add('visible');
+  }
+
+  function resetGame() {
+    if (gameOverPanel) gameOverPanel.classList.remove('visible');
+
+    // Reset paper airplane targets
+    airplane.targetX = canvas.width * 0.25;
+    airplane.targetY = canvas.height * 0.5;
+
+    // Place airplane offscreen left for the fly-in intro
+    airplane.x = -50;
+    airplane.y = canvas.height * 0.5;
+    airplane.vy = 0;
+    airplane.angle = 0;
+
+    score = 0;
+    if (scoreEl) scoreEl.textContent = '0';
+    if (instructionEl) instructionEl.textContent = 'Hold SPACE or Click/Tap to Glide';
+    gameOver = false;
+
+    // Reset cloud obstacles
+    gameClouds.length = 0;
+    for (let i = 0; i < MAX_CLOUDS; i++) {
+      spawnCloud(canvas.width + 150 + i * (canvas.width / 2.2));
+    }
+
+    // Reset bonus stars
+    gameStars.length = 0;
+    for (let i = 0; i < MAX_STARS; i++) {
+      spawnStar(canvas.width + 100 + i * (canvas.width / 1.5));
+    }
+
+    // Prepare countdown states
+    gameState = 'intro';
+    countdownVal = 3;
+    countdownTimer = 0;
+    const cdt = document.getElementById('game-countdown');
+    if (cdt) {
+      cdt.classList.remove('show');
+      cdt.textContent = '';
+    }
+  }
+
+  // ── Input ─────────────────────────────────────────────────
+  function handleJump() {
+    if (!gameRunning) return;
+    if (gameState === 'gameover') {
+      resetGame();
+      lastTime = performance.now();
+      animationFrameId = requestAnimationFrame(gameLoop);
+    } else if (gameState === 'playing') {
+      airplane.vy = airplane.jump;
+    }
+  }
+
+  window.addEventListener('keydown', (e) => {
+    if ((e.code === 'Space' || e.key === ' ') && gameRunning) {
+      e.preventDefault();
+      handleJump();
+    }
+  });
+
+  overlay.addEventListener('mousedown', (e) => {
+    if (e.target === canvas || e.target === overlay) handleJump();
+  });
+
+  overlay.addEventListener('touchstart', (e) => {
+    if (e.target === canvas || e.target === overlay) {
+      e.preventDefault();
+      handleJump();
+    }
+  }, { passive: false });
+
+  // ── Game loop ─────────────────────────────────────────────
+  function gameLoop(timestamp) {
+    if (!gameRunning) return;
+
+    const elapsed = Math.min(50, timestamp - lastTime);
+    lastTime = timestamp;
+
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    update(elapsed);
+    draw();
+
+    animationFrameId = requestAnimationFrame(gameLoop);
+  }
+
+  // ── Update ────────────────────────────────────────────────
+  function update(dt) {
+    const k = dt / 16.67; // Normalize factor
+
+    if (gameState === 'intro') {
+      // 1. Bird / Airplane Fly-In Animation
+      const dx = airplane.targetX - airplane.x;
+      const dy = airplane.targetY - airplane.y;
+      airplane.x += dx * 0.05 * k;
+      airplane.y += dy * 0.05 * k;
+      // Gentle glide tilt
+      airplane.angle = Math.sin(performance.now() * 0.005) * 0.1;
+
+      // When airplane is in position, start the countdown
+      if (Math.abs(dx) < 2) {
+        airplane.x = airplane.targetX;
+        airplane.y = airplane.targetY;
+        gameState = 'countdown';
+        countdownTimer = 0;
+        countdownVal = 3;
+        const cdt = document.getElementById('game-countdown');
+        if (cdt) {
+          cdt.textContent = countdownVal;
+          cdt.classList.add('show');
+        }
+      }
+      return;
+    }
+
+    if (gameState === 'countdown') {
+      // 2. Countdown 3...2...1 Sequence
+      countdownTimer += dt;
+      const cdt = document.getElementById('game-countdown');
+      
+      // Gentle airplane float during countdown
+      airplane.y = airplane.targetY + Math.sin(performance.now() * 0.003) * 8;
+      airplane.angle = Math.sin(performance.now() * 0.003) * 0.05;
+
+      if (countdownTimer >= 800) {
+        countdownTimer = 0;
+        countdownVal--;
+        if (countdownVal > 0) {
+          if (cdt) {
+            cdt.classList.remove('show');
+            // Force redraw/retrigger animation
+            void cdt.offsetWidth;
+            cdt.textContent = countdownVal;
+            cdt.classList.add('show');
+          }
+        } else if (countdownVal === 0) {
+          if (cdt) {
+            cdt.classList.remove('show');
+            void cdt.offsetWidth;
+            cdt.textContent = 'GO!';
+            cdt.classList.add('show');
+          }
+        } else {
+          if (cdt) {
+            cdt.classList.remove('show');
+            cdt.textContent = '';
+          }
+          gameState = 'playing';
+        }
+      }
+      return;
+    }
+
+    if (gameState === 'playing') {
+      // Gravity & Flight
+      airplane.vy += airplane.gravity * k;
+      airplane.y  += airplane.vy * k;
+
+      // Floor & ceiling limits
+      if (airplane.y > canvas.height - airplane.radius || airplane.y < airplane.radius) {
+        showGameOver();
+        return;
+      }
+
+      // Airfoil tilt based on glide velocity
+      airplane.angle = Math.min(Math.PI / 6, Math.max(-Math.PI / 10, airplane.vy * 0.04));
+
+      // 3. Clouds (Obstacles)
+      for (let i = 0; i < gameClouds.length; i++) {
+        const cloud = gameClouds[i];
+        cloud.x -= CLOUD_SPEED * k;
+
+        // Recycle cloud
+        if (cloud.x + 180 * cloud.scale < 0) {
+          gameClouds.splice(i, 1);
+          const lastX = gameClouds.length > 0
+            ? gameClouds[gameClouds.length - 1].x
+            : canvas.width;
+          spawnCloud(Math.max(canvas.width, lastX + canvas.width / 2.2));
+          i--;
+          continue;
+        }
+
+        // Collision Check
+        if (checkCollision(airplane, cloud)) {
+          showGameOver();
+          return;
+        }
+
+        // Score passed clouds
+        if (!cloud.passed && airplane.x > cloud.x + 60 * cloud.scale) {
+          cloud.passed = true;
+          addScore(1);
+        }
+      }
+
+      // 4. Collectible Stars Update
+      for (let i = 0; i < gameStars.length; i++) {
+        const star = gameStars[i];
+        star.x -= CLOUD_SPEED * k;
+        star.angle += star.pulseSpeed * k;
+
+        // Check star collection
+        const dist = Math.hypot(airplane.x - star.x, airplane.y - star.y);
+        if (!star.collected && dist < airplane.radius + star.radius + 5) {
+          star.collected = true;
+          addScore(3); // Bonus points!
+        }
+
+        // Recycle star
+        if (star.x + 30 < 0 || star.collected) {
+          gameStars.splice(i, 1);
+          const lastX = gameStars.length > 0
+            ? gameStars[gameStars.length - 1].x
+            : canvas.width;
+          spawnStar(Math.max(canvas.width, lastX + canvas.width / 1.5));
+          i--;
+        }
+      }
+    }
+  }
+
+  // ── Draw ──────────────────────────────────────────────────
+  function draw() {
+    // 1. Draw Clouds
+    gameClouds.forEach(c => drawCloudShape(c.x, c.y, c.scale, c.opacity));
+
+    // 2. Draw Stars
+    gameStars.forEach(s => {
+      if (!s.collected) {
+        const currentSize = s.radius + Math.sin(performance.now() * 0.01 + s.angle) * 2;
+        drawStarShape(s.x, s.y, currentSize, s.angle);
+      }
+    });
+
+    // 3. Draw Paper Airplane
+    ctx.save();
+    ctx.translate(airplane.x, airplane.y);
+    ctx.rotate(airplane.angle);
+
+    const gold = getComputedStyle(document.documentElement).getPropertyValue('--gold').trim() || '#C9A84C';
+    ctx.strokeStyle = gold;
+    ctx.fillStyle = document.body.dataset.theme === 'light' ? 'rgba(255, 255, 255, 0.95)' : 'rgba(20, 20, 35, 0.9)';
+    ctx.lineWidth = 1.8;
+
+    // Draw paper airplane
+    ctx.beginPath();
+    ctx.moveTo(18, 0);
+    ctx.lineTo(-14, -8);
+    ctx.lineTo(-4, 0);
+    ctx.closePath();
+    ctx.fill();
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.moveTo(18, 0);
+    ctx.lineTo(-14, 8);
+    ctx.lineTo(-4, 0);
+    ctx.closePath();
+    ctx.fill();
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.moveTo(18, 0);
+    ctx.lineTo(-4, 0);
+    ctx.strokeStyle = 'rgba(201, 168, 76, 0.6)';
+    ctx.stroke();
+
+    ctx.restore();
+  }
+
+  // ── Button handlers ───────────────────────────────────────
+  if (restartBtn) {
+    restartBtn.addEventListener('click', () => {
+      resetGame();
+      lastTime = performance.now();
+      animationFrameId = requestAnimationFrame(gameLoop);
+    });
+  }
+
+  if (returnBtn) {
+    returnBtn.addEventListener('click', () => {
+      // Stop the game loop first
+      gameRunning = false;
+      if (animationFrameId) {
+        cancelAnimationFrame(animationFrameId);
+        animationFrameId = null;
+      }
+
+      // Hide game overlay (fades out via CSS transition)
+      overlay.classList.remove('active');
+
+      // Show navbar + fade hero content back in
+      document.body.classList.remove('game-active');
+
+      // Reset score, position & clouds for a fresh replay
+      resetGame();
+
+      // Clear the canvas so no stale frame lingers
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      // Trigger "Welcome Back" toast banner
+      const toast = document.getElementById('welcome-back-notification');
+      if (toast) {
+        toast.classList.add('show');
+        setTimeout(() => {
+          toast.classList.remove('show');
+        }, 3200);
+      }
+    });
+  }
+
+  // ── Public API ────────────────────────────────────────────
+  window.startGame = function () {
+    overlay.classList.add('active');
+    document.body.classList.add('game-active');
+    resizeCanvas();
+    resetGame();
+    gameRunning = true;
+    lastTime = performance.now();
+    animationFrameId = requestAnimationFrame(gameLoop);
+  };
+})();
+
 console.log(
-  '%c✦ KUV Portfolio %c Built with Editorial Excellence',
+  '%c✦ Cloud Escape %c Ready to Glide',
   'background:#C9A84C;color:#0A0A0F;padding:6px 14px;border-radius:2px 0 0 2px;font-weight:700;font-family:serif;',
   'background:#0F0F1C;color:#C9A84C;padding:6px 14px;border-radius:0 2px 2px 0;font-weight:500;border:1px solid #C9A84C;'
 );
+
